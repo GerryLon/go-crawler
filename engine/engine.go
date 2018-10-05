@@ -24,9 +24,8 @@ func Run(seeds ...Request) {
 		result := q.Parser(contents)
 		requests = append(requests, result.Requests...)
 
-		for item := range result.Items {
-			log.Printf("Got item %v", item)
+		for _, item := range result.Items {
+			log.Printf("Got item %v\n", item)
 		}
-		log.Println()
 	}
 }

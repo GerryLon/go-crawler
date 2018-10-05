@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"time"
 	"io/ioutil"
+	"github.com/GerryLon/go-crawler/utils/text"
 )
 
 // fetch contents from giving url
@@ -24,7 +25,14 @@ func Fetch(url string) ([]byte, error)  {
 	}
 	defer resp.Body.Close()
 
-	return ioutil.ReadAll(resp.Body)
+	contents, err := ioutil.ReadAll(resp.Body)
+
+	if err != nil {
+		return nil, err
+	}
+
+	// TODO: should determine encoding automatically
+	return text.Gbk2Utf8(contents), nil
 }
 
 
