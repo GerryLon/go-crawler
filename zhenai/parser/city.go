@@ -15,9 +15,12 @@ func ParseCity(contents []byte) engine.ParseResult {
 
 	result := engine.ParseResult{}
 	for _, match := range matches {
+		name := string(match[2])
 		result.Requests = append(result.Requests, engine.Request{
-			Url:    string(match[1]), // url
-			Parser: engine.NoopParser,
+			Url: string(match[1]), // url
+			Parser: func(c []byte) engine.ParseResult {
+				return ParseProfile(c, name)
+			},
 		})
 
 		// match[2] is user's nickname

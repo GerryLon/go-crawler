@@ -4,6 +4,8 @@ import (
 	"github.com/GerryLon/go-crawler/fetcher"
 	"github.com/GerryLon/go-crawler/filter"
 	"log"
+	"strings"
+	"time"
 )
 
 func Run(seeds ...Request) {
@@ -18,6 +20,11 @@ func Run(seeds ...Request) {
 		requests = requests[1:]
 
 		url := q.Url
+
+		if strings.TrimSpace(url) == "" {
+			log.Println("url is empty!")
+			continue
+		}
 
 		if dedupFilter.Has(url) {
 			log.Printf("url %s has fetched!\n", url)
@@ -37,5 +44,7 @@ func Run(seeds ...Request) {
 		for _, item := range result.Items {
 			log.Printf("Got item %v\n", item)
 		}
+
+		time.Sleep(time.Second * 2)
 	}
 }
