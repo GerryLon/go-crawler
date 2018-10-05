@@ -5,26 +5,20 @@ import (
 	"regexp"
 )
 
-var cityRe = regexp.MustCompile(`<a href="(http://city.zhenai.com/[a-z\d]+)"[^>]*>([^<]+)</a>`)
+var profileRe = regexp.MustCompile(`<a href="(http://album.zhenai.com/u/\d+)"[^>]*>([^<]+)</a>`)
 
-func ParseCityList(contents []byte) engine.ParseResult {
-	matches := cityRe.FindAllSubmatch(contents, -1)
+func ParseCity(contents []byte) engine.ParseResult {
+	matches := profileRe.FindAllSubmatch(contents, -1)
 
 	result := engine.ParseResult{}
-	limit := 5
 	for _, match := range matches {
 		result.Requests = append(result.Requests, engine.Request{
 			Url: string(match[1]), // url
-			Parser: ParseCity,
+			Parser: engine.NoopParser,
 		})
 
-		// match[2] is city name
+		// match[2] is user's nickname
 		result.Items = append(result.Items, string(match[2]))
-		limit--
-
-		if limit == 0 {
-			break
-		}
 	}
 
 	return result
