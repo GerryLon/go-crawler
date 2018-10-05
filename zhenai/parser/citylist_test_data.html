@@ -1,0 +1,1827 @@
+
+
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+<meta charset="gbk" />
+
+<!-- 手机端seo适配  -->
+<meta name="mobile-agent" content="format=xhtml; url=http://m.zhenai.com/xiangqin">
+<meta name="mobile-agent" content="format=html5; url=http://m.zhenai.com/xiangqin">
+<meta name="mobile-agent" content="format=wml; url=http://m.zhenai.com/xiangqin">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<script src="http://i3.zastatic.com/zhenai3/zhenai2015/js/lib/jquery-1.8.3.min_e128811.js"></script>
+<script type="text/javascript" src="http://images.zastatic.com/imwap/wap2015/js/mseo.js"></script>
+<script type="text/javascript">
+UA = navigator.userAgent.toLowerCase();
+url = window.location.toString();
+if ((UA.indexOf('iphone') != -1 || UA.indexOf('mobile') != -1
+        || UA.indexOf('android') != -1 || UA.indexOf('ipad') != -1
+        || UA.indexOf('windows ce') != -1 || UA.indexOf('ipod') != -1)
+        && UA.indexOf('ipod') == -1) {
+    
+    var type = '2';
+    seoStat(type);
+    var ref = document.referrer;
+    document.cookie="SEOReferrer="+ref+";domain=.zhenai.com";
+    location.href = "http://m.zhenai.com/xiangqin";
+}
+</script>
+<title>珍爱网相亲_珍爱相亲网_靠谱的同城相亲网站</title>
+<meta name="renderer" content="webkit">
+<link href="http://i2.zastatic.com/zhenai3/zhenai2015/img/favicon.ico" type="image/x-icon" rel="icon" />
+<link href="http://i2.zastatic.com/zhenai3/zhenai2015/img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<link rel="stylesheet" href="http://i0.zastatic.com/zhenai3/zhenai2015/css/public_654ff4e.css" />
+<link rel="stylesheet" href="http://i0.zastatic.com/zhenai3/zhenai2015/css/aside_16fbf81.css" />
+<link rel="stylesheet" href="http://i0.zastatic.com/zhenai3/zhenai2015/css/frame/common_22824a8.css" />
+<link rel="stylesheet" href="http://i0.zastatic.com/zhenai3/zhenai2015/css/dating_3563999.css" />
+<link rel="stylesheet" href="http://i0.zastatic.com/zhenai3/zhenai2015/css/datingPop_28a2bb1.css" />
+<meta name="keywords" content="相亲,同城相亲,珍爱相亲"/>
+<meta name="description" content="珍爱网相亲网提供最新的相亲信息，免费注册高效相亲，已有千万会员相亲成功，相亲找伴侣首选珍爱网。"/>
+<style>
+.city-page{margin: 20px auto;border: 1px solid #e0e0e0;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; } 
+.city-page .city-list{padding: 40px;background: #fff;}
+.city-page .city-list dt{float: left; width: 40px; font-family: Arial,Helvetica,sans-serif; font-size: 16px; clear: both; font-weight: bold; margin: 0px; padding: 0px; color: #666; }
+.city-page .city-list dd{float: left; width: 1070px; margin-left: 0px; padding: 0px; margin-bottom: 10px; text-align: left; }
+.city-page .city-list dd a{font-size: 13px; margin-right: 14px; white-space: nowrap; }
+.city-page .city-list dd a.tred {color: #f60; }
+.root1000 .frameW {width: 990px;}
+.root1000 .city-page .city-list dd{width: 870px;}
+</style>
+<!--[if lt IE 9]> <script type="text/javascript"> (function (){ var tag = ["address","article","aside","audio","canvas","details","figcaption","figure","header","footer","hgroup","menu","nav","section","summary","time","video"],i=0; for(i in tag){ document.createElement(tag[i]); } })();</script><![endif]-->
+<script src="http://i3.zastatic.com/zhenai3/zhenai2015/js/lib/jquery-1.8.3.min_e128811.js"></script>
+<script src="http://i3.zastatic.com/zhenai3/zhenai2015/js/lib/LAB.min_85a55fb.js"></script>
+<script src="http://i3.zastatic.com/zhenai3/zhenai2015/js/lib/sea_6642d21.js"></script>
+<script>
+
+/* Baidu Statistics Begin*/
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2c8ad67df9e787ad29dbd54ee608f5d2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+/* Baidu Statistics End*/
+
+seajs.config({
+    charset:"GBK",
+    base: "http://images.zastatic.com/zhenai3",
+    alias: {
+    	dialog : "zhenai2015/js/lib/artDialog.v6/src/dialog.js",
+    	zhenaiPay : "http://images.zastatic.com/zhenai3/zhenai2012/js/paycenter/zhenaiPay.js?v=20150420",
+    	msgService : "zhenai2015/js/message/msgService.js?v=20150723",
+    	pubDialog : "zhenai2015/js/public/pubDialog.js",
+    	header : "zhenai2015/js/public/header.js",
+    	toolBar : "zhenai2015/js/public/toolBar.js",
+    	right : "zhenai2015/js/message/right.js",
+    	changeDocWidth : "zhenai2015/js/public/changeDocWidth.js",
+    	loginService : "zhenai2015/js/public/login.js",
+        tipBar : "zhenai2015/js/public/tipBar.js"
+  	}
+});
+document.domain = "zhenai.com";
+function ajaxStat(resourceId,accessPoint,sParam,isPV) {
+	var ref=document.referrer;
+	var url='http://cdnlog.zhenai.com/visit/?resourceId='+resourceId+'&accessPoint='+accessPoint+'&sParam='+sParam+'&isPV='+isPV+'&referer='+encodeURIComponent(ref?ref:'');
+	$.ajax({
+		url:url,
+		dataType:"jsonp",
+		success: function(data){}
+	});
+}
+
+/* SEO Statistics Begin*/
+function seoStat(entry){
+	seajs.use("zhenai2015/js/seo/seo.js", function(seo){
+		seo.init(entry);
+	});
+}
+/** SEO Statistics End */
+</script>
+
+</head>
+<body>
+<script src="http://i3.zastatic.com/zhenai3/zhenai2015/js/public/screenfix_608df31.js"></script>
+
+
+
+<header id="jcZAHeader" class="header">
+	<section class="frameW top-bar clearfix">
+		<a class="logo" href="http://www.zhenai.com/" title="珍爱网"></a>
+		<p class="ad-word">相亲无难事，珍爱有红娘</p>
+		<div class="tools">
+			<ul class="clearfix">
+				<li class="mobile"><a href="http://mo.zhenai.com" target="_blank" title="珍爱网app下载">手机版</a></li>
+				<li class="collect"><a href="javascript:;">收藏本站</a></li>
+				<li class="cust"><a href="javascript:;">在线客服</a></li>
+				<li><a href="http://www.zhenai.com/anquan/" target="_blank" >安全中心</a></li>
+				
+				<li class="tel">红娘热线：4001-520520</li>
+			</ul>
+		</div>
+	</section>
+	<section class="nav-bar">
+		<div class="frameW clearfix">
+			<menu class="menu">
+				<ul>
+					<li id="jcMenuBeauty" class="bg-scroll"></li>
+					<li><a href="http://profile.zhenai.com/v2/personal/home.do" rel="nofollow">我的珍爱</a></li>
+					<li><a href="http://search.zhenai.com/search/getfastmdata.jsps" target="_blank" rel="nofollow">搜索</a></li>
+					<li><a href="http://profile.zhenai.com/lovestory/indexhnznone.jsps" target="_blank" >人工红娘</a></li>
+					<li><a href="http://profile.zhenai.com/zhenaiMail/zhenaiMail.jsps" target="_blank" rel="nofollow">珍心会员</a></li>
+					<li><a href="http://t.zhenai.com/hnzone/articleIndex.do" target="_blank" rel="nofollow">情感频道</a><i class="new"></i></li>
+					<li><a href="http://story.zhenai.com/" target="_blank" >成功故事</a></li>
+					
+					
+				</ul>
+			</menu>
+			<div class="header-info user-info">
+				<span class="topic"><em class="user-icon"></em></span>
+				<ul>
+                    <li><a href="http://profile.zhenai.com/personal/material.jsps?notComplete=1" rel="nofollow">编辑资料</a></li>
+                    <li><a href="http://profile.zhenai.com/credit/creditIndex.jsps" rel="nofollow">诚信认证</a></li>
+                    <li><a href="http://register.zhenai.com/personal/getmemberphotos.jsps" rel="nofollow">个人相册</a></li>
+                    <li><a href="http://profile.zhenai.com/personal/returnStep.jsps" rel="nofollow">系统设置</a></li>
+                    <li class="quit"><a href="http://profile.zhenai.com/v2/login/logout.do" rel="nofollow">退出</a></li>
+                </ul>
+			</div>
+			<div class="header-info message-info" id="jcMessageInfo">
+				<span class="topic"><em class="message-icon"></em></span>
+				<ul>
+					<li><a href="http://profile.zhenai.com/v2/mail/list.do" rel="nofollow">邮件</a></li>
+					<li><a href="http://profile.zhenai.com/v2/msg/msgIndex.do" rel="nofollow">消息</a></li>
+					<li><a href="http://profile.zhenai.com/v2/visit/index.do" rel="nofollow">谁看过我</a></li>
+					<li><a href="http://profile.zhenai.com/v2/notice/index.do" rel="nofollow">系统通知</a></li>
+					<li><a href="http://profile.zhenai.com/v2/intercourse/intercourseIndex.do" rel="nofollow">交往对象</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</section>
+</header>
+<script type="text/javascript">
+$(function(){
+	var index = 0,url = location.href,host=window.location.host;
+	if(url.indexOf("/search/getfastmdata.jsps")!=-1){
+		index = 2;
+	}else if(url.indexOf("/lovestory/indexhnznone.jsps")!=-1){
+		index = 3;
+	}else if(url.indexOf("/zhenaiMail/zhenaiMail.jsps")!=-1){
+		index = 4;
+	}else if(host.indexOf('story.zhenai.com')!=-1){
+		index = 5;
+	}else if(url.indexOf("/hnzone/articleIndex.do")!=-1){
+		index=6;
+	}
+	seajs.use("zhenai2015/js/public/header.js",function(header){header.init(index);});
+});
+</script>
+<article class="myhome-wrap frameW city-page">
+	<dl id="cityList" class="city-list  clearfix">
+		
+			<dt>A</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/aba"
+								class="">阿坝</a>
+						
+							<a href="http://city.zhenai.com/akesu"
+								class="">阿克苏</a>
+						
+							<a href="http://city.zhenai.com/alashanmeng"
+								class="">阿拉善盟</a>
+						
+							<a href="http://city.zhenai.com/aletai"
+								class="">阿勒泰</a>
+						
+							<a href="http://city.zhenai.com/ali"
+								class="">阿里</a>
+						
+							<a href="http://city.zhenai.com/anhui"
+								class="">安徽</a>
+						
+							<a href="http://city.zhenai.com/ankang"
+								class="">安康</a>
+						
+							<a href="http://city.zhenai.com/anqing"
+								class="">安庆</a>
+						
+							<a href="http://city.zhenai.com/anshan"
+								class="">鞍山</a>
+						
+							<a href="http://city.zhenai.com/anshun"
+								class="">安顺</a>
+						
+							<a href="http://city.zhenai.com/anyang"
+								class="">安阳</a>
+						
+							<a href="http://city.zhenai.com/aomen"
+								class="">澳门</a>
+						
+					
+			</dd>
+		
+			<dt>B</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/baicheng1"
+								class="">白城</a>
+						
+							<a href="http://city.zhenai.com/baise"
+								class="">百色</a>
+						
+							<a href="http://city.zhenai.com/baishan"
+								class="">白山</a>
+						
+							<a href="http://city.zhenai.com/baiyin"
+								class="">白银</a>
+						
+							<a href="http://city.zhenai.com/banan"
+								class="">巴南</a>
+						
+							<a href="http://city.zhenai.com/bangbu"
+								class="">蚌埠</a>
+						
+							<a href="http://city.zhenai.com/baochi"
+								class="">宝坻</a>
+						
+							<a href="http://city.zhenai.com/baoding"
+								class="">保定</a>
+						
+							<a href="http://city.zhenai.com/baoji"
+								class="">宝鸡</a>
+						
+							<a href="http://city.zhenai.com/baoshan"
+								class="">宝山</a>
+						
+							<a href="http://city.zhenai.com/baoshan1"
+								class="">保山</a>
+						
+							<a href="http://city.zhenai.com/baotou"
+								class="">包头</a>
+						
+							<a href="http://city.zhenai.com/bayannaoer"
+								class="">巴彦淖尔</a>
+						
+							<a href="http://city.zhenai.com/bayinguoleng"
+								class="">巴音郭楞</a>
+						
+							<a href="http://city.zhenai.com/bazhong"
+								class="">巴中</a>
+						
+							<a href="http://city.zhenai.com/beibei"
+								class="">北碚</a>
+						
+							<a href="http://city.zhenai.com/beichen"
+								class="">北辰</a>
+						
+							<a href="http://city.zhenai.com/beihai"
+								class="">北海</a>
+						
+							<a href="http://city.zhenai.com/beijing"
+								class="">北京</a>
+						
+							<a href="http://city.zhenai.com/benxi"
+								class="">本溪</a>
+						
+							<a href="http://city.zhenai.com/bijie"
+								class="">毕节</a>
+						
+							<a href="http://city.zhenai.com/binhaixin"
+								class="">滨海新</a>
+						
+							<a href="http://city.zhenai.com/binzhou"
+								class="">滨州</a>
+						
+							<a href="http://city.zhenai.com/bishan"
+								class="">璧山</a>
+						
+							<a href="http://city.zhenai.com/boertala"
+								class="">博尔塔拉</a>
+						
+							<a href="http://city.zhenai.com/bozhou"
+								class="">亳州</a>
+						
+					
+			</dd>
+		
+			<dt>C</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/cangzhou"
+								class="">沧州</a>
+						
+							<a href="http://city.zhenai.com/changchun"
+								class="">长春</a>
+						
+							<a href="http://city.zhenai.com/changde"
+								class="">常德</a>
+						
+							<a href="http://city.zhenai.com/changdu"
+								class="">昌都</a>
+						
+							<a href="http://city.zhenai.com/changji"
+								class="">昌吉</a>
+						
+							<a href="http://city.zhenai.com/changning1"
+								class="">长宁</a>
+						
+							<a href="http://city.zhenai.com/changping"
+								class="">昌平</a>
+						
+							<a href="http://city.zhenai.com/changsha"
+								class="">长沙</a>
+						
+							<a href="http://city.zhenai.com/changshou"
+								class="">长寿</a>
+						
+							<a href="http://city.zhenai.com/changzhi"
+								class="">长治</a>
+						
+							<a href="http://city.zhenai.com/changzhou"
+								class="">常州</a>
+						
+							<a href="http://city.zhenai.com/chaoyang1"
+								class="">朝阳</a>
+						
+							<a href="http://city.zhenai.com/chaozhou"
+								class="">潮州</a>
+						
+							<a href="http://city.zhenai.com/chengde"
+								class="">承德</a>
+						
+							<a href="http://city.zhenai.com/chengdu"
+								class="">成都</a>
+						
+							<a href="http://city.zhenai.com/chengkou"
+								class="">城口</a>
+						
+							<a href="http://city.zhenai.com/chenzhou"
+								class="">郴州</a>
+						
+							<a href="http://city.zhenai.com/chifeng"
+								class="">赤峰</a>
+						
+							<a href="http://city.zhenai.com/chizhou"
+								class="">池州</a>
+						
+							<a href="http://city.zhenai.com/chongming"
+								class="">崇明</a>
+						
+							<a href="http://city.zhenai.com/chongqing"
+								class="">重庆</a>
+						
+							<a href="http://city.zhenai.com/chongzuo"
+								class="">崇左</a>
+						
+							<a href="http://city.zhenai.com/chuxiong"
+								class="">楚雄</a>
+						
+							<a href="http://city.zhenai.com/chuzhou"
+								class="">滁州</a>
+						
+					
+			</dd>
+		
+			<dt>D</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/dadukou"
+								class="">大渡口</a>
+						
+							<a href="http://city.zhenai.com/dali1"
+								class="">大理</a>
+						
+							<a href="http://city.zhenai.com/dalian"
+								class="">大连</a>
+						
+							<a href="http://city.zhenai.com/dandong"
+								class="">丹东</a>
+						
+							<a href="http://city.zhenai.com/daqing"
+								class="">大庆</a>
+						
+							<a href="http://city.zhenai.com/datong1"
+								class="">大同</a>
+						
+							<a href="http://city.zhenai.com/daxing"
+								class="">大兴</a>
+						
+							<a href="http://city.zhenai.com/daxinganling"
+								class="">大兴安岭</a>
+						
+							<a href="http://city.zhenai.com/dazhou"
+								class="">达州</a>
+						
+							<a href="http://city.zhenai.com/dazu"
+								class="">大足</a>
+						
+							<a href="http://city.zhenai.com/dehong"
+								class="">德宏</a>
+						
+							<a href="http://city.zhenai.com/deyang"
+								class="">德阳</a>
+						
+							<a href="http://city.zhenai.com/dezhou"
+								class="">德州</a>
+						
+							<a href="http://city.zhenai.com/dianjiang"
+								class="">垫江</a>
+						
+							<a href="http://city.zhenai.com/dingxi"
+								class="">定西</a>
+						
+							<a href="http://city.zhenai.com/diqing"
+								class="">迪庆</a>
+						
+							<a href="http://city.zhenai.com/dongcheng"
+								class="">东城</a>
+						
+							<a href="http://city.zhenai.com/dongguan"
+								class="">东莞</a>
+						
+							<a href="http://city.zhenai.com/dongli"
+								class="">东丽</a>
+						
+							<a href="http://city.zhenai.com/dongying"
+								class="">东营</a>
+						
+					
+			</dd>
+		
+			<dt>E</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/eerduosi"
+								class="">鄂尔多斯</a>
+						
+							<a href="http://city.zhenai.com/enshi"
+								class="">恩施</a>
+						
+							<a href="http://city.zhenai.com/ezhou"
+								class="">鄂州</a>
+						
+					
+			</dd>
+		
+			<dt>F</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/fangchenggang"
+								class="">防城港</a>
+						
+							<a href="http://city.zhenai.com/fangshan1"
+								class="">房山</a>
+						
+							<a href="http://city.zhenai.com/fengdu"
+								class="">丰都</a>
+						
+							<a href="http://city.zhenai.com/fengjie"
+								class="">奉节</a>
+						
+							<a href="http://city.zhenai.com/fengtai1"
+								class="">丰台</a>
+						
+							<a href="http://city.zhenai.com/fengxian2"
+								class="">奉贤</a>
+						
+							<a href="http://city.zhenai.com/foshan"
+								class="">佛山</a>
+						
+							<a href="http://city.zhenai.com/fujian"
+								class="">福建</a>
+						
+							<a href="http://city.zhenai.com/fuling"
+								class="">涪陵</a>
+						
+							<a href="http://city.zhenai.com/fushun1"
+								class="">抚顺</a>
+						
+							<a href="http://city.zhenai.com/fuxin"
+								class="">阜新</a>
+						
+							<a href="http://city.zhenai.com/fuyang1"
+								class="">阜阳</a>
+						
+							<a href="http://city.zhenai.com/fuzhou"
+								class="">福州</a>
+						
+							<a href="http://city.zhenai.com/fuzhou1"
+								class="">抚州</a>
+						
+					
+			</dd>
+		
+			<dt>G</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/gannan1"
+								class="">甘南</a>
+						
+							<a href="http://city.zhenai.com/gansu"
+								class="">甘肃</a>
+						
+							<a href="http://city.zhenai.com/ganzhou"
+								class="">赣州</a>
+						
+							<a href="http://city.zhenai.com/ganzi"
+								class="">甘孜</a>
+						
+							<a href="http://city.zhenai.com/gaoxiong"
+								class="">高雄</a>
+						
+							<a href="http://city.zhenai.com/guangan"
+								class="">广安</a>
+						
+							<a href="http://city.zhenai.com/guangdong"
+								class="">广东</a>
+						
+							<a href="http://city.zhenai.com/guangxi"
+								class="">广西</a>
+						
+							<a href="http://city.zhenai.com/guangyuan"
+								class="">广元</a>
+						
+							<a href="http://city.zhenai.com/guangzhou"
+								class="">广州</a>
+						
+							<a href="http://city.zhenai.com/guigang"
+								class="">贵港</a>
+						
+							<a href="http://city.zhenai.com/guilin"
+								class="">桂林</a>
+						
+							<a href="http://city.zhenai.com/guiyang"
+								class="">贵阳</a>
+						
+							<a href="http://city.zhenai.com/guizhou"
+								class="">贵州</a>
+						
+							<a href="http://city.zhenai.com/guoluo"
+								class="">果洛</a>
+						
+							<a href="http://city.zhenai.com/guyuan1"
+								class="">固原</a>
+						
+					
+			</dd>
+		
+			<dt>H</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/haerbin"
+								class="">哈尔滨</a>
+						
+							<a href="http://city.zhenai.com/haibei"
+								class="">海北</a>
+						
+							<a href="http://city.zhenai.com/haidian"
+								class="">海淀</a>
+						
+							<a href="http://city.zhenai.com/haidongdi"
+								class="">海东地</a>
+						
+							<a href="http://city.zhenai.com/haikou"
+								class="">海口</a>
+						
+							<a href="http://city.zhenai.com/hainan"
+								class="">海南</a>
+						
+							<a href="http://city.zhenai.com/hainanzangzuzizhizhou"
+								class="">海南藏族自治州</a>
+						
+							<a href="http://city.zhenai.com/haixi"
+								class="">海西</a>
+						
+							<a href="http://city.zhenai.com/hami"
+								class="">哈密</a>
+						
+							<a href="http://city.zhenai.com/handan"
+								class="">邯郸</a>
+						
+							<a href="http://city.zhenai.com/hangzhou"
+								class="">杭州</a>
+						
+							<a href="http://city.zhenai.com/hanzhong"
+								class="">汉中</a>
+						
+							<a href="http://city.zhenai.com/hebei"
+								class="">河北</a>
+						
+							<a href="http://city.zhenai.com/hebi"
+								class="">鹤壁</a>
+						
+							<a href="http://city.zhenai.com/hechi"
+								class="">河池</a>
+						
+							<a href="http://city.zhenai.com/hechuan"
+								class="">合川</a>
+						
+							<a href="http://city.zhenai.com/hedong"
+								class="">河东</a>
+						
+							<a href="http://city.zhenai.com/hefei"
+								class="">合肥</a>
+						
+							<a href="http://city.zhenai.com/hegang"
+								class="">鹤岗</a>
+						
+							<a href="http://city.zhenai.com/heihe"
+								class="">黑河</a>
+						
+							<a href="http://city.zhenai.com/heilongjiang"
+								class="">黑龙江</a>
+						
+							<a href="http://city.zhenai.com/henan"
+								class="">河南</a>
+						
+							<a href="http://city.zhenai.com/hengshui"
+								class="">衡水</a>
+						
+							<a href="http://city.zhenai.com/hengyang"
+								class="">衡阳</a>
+						
+							<a href="http://city.zhenai.com/heping2"
+								class="">和平</a>
+						
+							<a href="http://city.zhenai.com/hetian"
+								class="">和田</a>
+						
+							<a href="http://city.zhenai.com/hexi"
+								class="">河西</a>
+						
+							<a href="http://city.zhenai.com/heyuan"
+								class="">河源</a>
+						
+							<a href="http://city.zhenai.com/heze"
+								class="">菏泽</a>
+						
+							<a href="http://city.zhenai.com/hezhou"
+								class="">贺州</a>
+						
+							<a href="http://city.zhenai.com/honghe1"
+								class="">红河</a>
+						
+							<a href="http://city.zhenai.com/hongkou"
+								class="">虹口</a>
+						
+							<a href="http://city.zhenai.com/hongqiao"
+								class="">红桥</a>
+						
+							<a href="http://city.zhenai.com/huaian"
+								class="">淮安</a>
+						
+							<a href="http://city.zhenai.com/huaibei"
+								class="">淮北</a>
+						
+							<a href="http://city.zhenai.com/huaihua"
+								class="">怀化</a>
+						
+							<a href="http://city.zhenai.com/huainan"
+								class="">淮南</a>
+						
+							<a href="http://city.zhenai.com/huairou"
+								class="">怀柔</a>
+						
+							<a href="http://city.zhenai.com/hualian"
+								class="">花莲</a>
+						
+							<a href="http://city.zhenai.com/huanggang"
+								class="">黄冈</a>
+						
+							<a href="http://city.zhenai.com/huangnan"
+								class="">黄南</a>
+						
+							<a href="http://city.zhenai.com/huangpu1"
+								class="">黄浦</a>
+						
+							<a href="http://city.zhenai.com/huangshan"
+								class="">黄山</a>
+						
+							<a href="http://city.zhenai.com/huangshi"
+								class="">黄石</a>
+						
+							<a href="http://city.zhenai.com/hubei"
+								class="">湖北</a>
+						
+							<a href="http://city.zhenai.com/huhehaote"
+								class="">呼和浩特</a>
+						
+							<a href="http://city.zhenai.com/huizhou"
+								class="">惠州</a>
+						
+							<a href="http://city.zhenai.com/huludao"
+								class="">葫芦岛</a>
+						
+							<a href="http://city.zhenai.com/hulunbeier"
+								class="">呼伦贝尔</a>
+						
+							<a href="http://city.zhenai.com/hunan"
+								class="">湖南</a>
+						
+							<a href="http://city.zhenai.com/huzhou"
+								class="">湖州</a>
+						
+					
+			</dd>
+		
+			<dt>J</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/jiading"
+								class="">嘉定</a>
+						
+							<a href="http://city.zhenai.com/jiamusi"
+								class="">佳木斯</a>
+						
+							<a href="http://city.zhenai.com/jian1"
+								class="">吉安</a>
+						
+							<a href="http://city.zhenai.com/jiangbei1"
+								class="">江北</a>
+						
+							<a href="http://city.zhenai.com/jiangjin"
+								class="">江津</a>
+						
+							<a href="http://city.zhenai.com/jiangmen"
+								class="">江门</a>
+						
+							<a href="http://city.zhenai.com/jiangsu"
+								class="">江苏</a>
+						
+							<a href="http://city.zhenai.com/jiangxi"
+								class="">江西</a>
+						
+							<a href="http://city.zhenai.com/jiaozuo"
+								class="">焦作</a>
+						
+							<a href="http://city.zhenai.com/jiaxing"
+								class="">嘉兴</a>
+						
+							<a href="http://city.zhenai.com/jiayi"
+								class="">嘉义</a>
+						
+							<a href="http://city.zhenai.com/jiayuguan"
+								class="">嘉峪关</a>
+						
+							<a href="http://city.zhenai.com/jieyang"
+								class="">揭阳</a>
+						
+							<a href="http://city.zhenai.com/jilin"
+								class="">吉林</a>
+						
+							<a href="http://city.zhenai.com/jilong1"
+								class="">基隆</a>
+						
+							<a href="http://city.zhenai.com/jinan"
+								class="">济南</a>
+						
+							<a href="http://city.zhenai.com/jinchang"
+								class="">金昌</a>
+						
+							<a href="http://city.zhenai.com/jincheng"
+								class="">晋城</a>
+						
+							<a href="http://city.zhenai.com/jingan1"
+								class="">静安</a>
+						
+							<a href="http://city.zhenai.com/jingdezhen"
+								class="">景德镇</a>
+						
+							<a href="http://city.zhenai.com/jinghai"
+								class="">静海</a>
+						
+							<a href="http://city.zhenai.com/jingmen"
+								class="">荆门</a>
+						
+							<a href="http://city.zhenai.com/jingzhou1"
+								class="">荆州</a>
+						
+							<a href="http://city.zhenai.com/jinhua"
+								class="">金华</a>
+						
+							<a href="http://city.zhenai.com/jining"
+								class="">济宁</a>
+						
+							<a href="http://city.zhenai.com/jinnan"
+								class="">津南</a>
+						
+							<a href="http://city.zhenai.com/jinshan"
+								class="">金山</a>
+						
+							<a href="http://city.zhenai.com/jinzhong"
+								class="">晋中</a>
+						
+							<a href="http://city.zhenai.com/jinzhou2"
+								class="">锦州</a>
+						
+							<a href="http://city.zhenai.com/jiujiang"
+								class="">九江</a>
+						
+							<a href="http://city.zhenai.com/jiulong1"
+								class="">九龙</a>
+						
+							<a href="http://city.zhenai.com/jiulongpo"
+								class="">九龙坡</a>
+						
+							<a href="http://city.zhenai.com/jiuquan"
+								class="">酒泉</a>
+						
+							<a href="http://city.zhenai.com/jixi1"
+								class="">鸡西</a>
+						
+							<a href="http://city.zhenai.com/jixian2"
+								class="">蓟县</a>
+						
+					
+			</dd>
+		
+			<dt>K</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/kaifeng1"
+								class="">开封</a>
+						
+							<a href="http://city.zhenai.com/kaixian"
+								class="">开县</a>
+						
+							<a href="http://city.zhenai.com/kashen"
+								class="">喀什</a>
+						
+							<a href="http://city.zhenai.com/kelamayi"
+								class="">克拉玛依</a>
+						
+							<a href="http://city.zhenai.com/kezilesukeerkezi"
+								class="">克孜勒苏柯尔克孜</a>
+						
+							<a href="http://city.zhenai.com/kunming"
+								class="">昆明</a>
+						
+					
+			</dd>
+		
+			<dt>L</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/laibin"
+								class="">来宾</a>
+						
+							<a href="http://city.zhenai.com/laiwu"
+								class="">莱芜</a>
+						
+							<a href="http://city.zhenai.com/langfang"
+								class="">廊坊</a>
+						
+							<a href="http://city.zhenai.com/lanzhou"
+								class="">兰州</a>
+						
+							<a href="http://city.zhenai.com/lasa"
+								class="">拉萨</a>
+						
+							<a href="http://city.zhenai.com/leshan"
+								class="">乐山</a>
+						
+							<a href="http://city.zhenai.com/liangping"
+								class="">梁平</a>
+						
+							<a href="http://city.zhenai.com/liangshan1"
+								class="">凉山</a>
+						
+							<a href="http://city.zhenai.com/lianyungang"
+								class="">连云港</a>
+						
+							<a href="http://city.zhenai.com/liaocheng"
+								class="">聊城</a>
+						
+							<a href="http://city.zhenai.com/liaoning"
+								class="">辽宁</a>
+						
+							<a href="http://city.zhenai.com/liaoyang"
+								class="">辽阳</a>
+						
+							<a href="http://city.zhenai.com/liaoyuan"
+								class="">辽源</a>
+						
+							<a href="http://city.zhenai.com/lijiang"
+								class="">丽江</a>
+						
+							<a href="http://city.zhenai.com/lincang"
+								class="">临沧</a>
+						
+							<a href="http://city.zhenai.com/linfen"
+								class="">临汾</a>
+						
+							<a href="http://city.zhenai.com/linxia"
+								class="">临夏</a>
+						
+							<a href="http://city.zhenai.com/linyi2"
+								class="">临沂</a>
+						
+							<a href="http://city.zhenai.com/linzhi"
+								class="">林芝</a>
+						
+							<a href="http://city.zhenai.com/lishui1"
+								class="">丽水</a>
+						
+							<a href="http://city.zhenai.com/liuan"
+								class="">六安</a>
+						
+							<a href="http://city.zhenai.com/liupanshui"
+								class="">六盘水</a>
+						
+							<a href="http://city.zhenai.com/liuzhou"
+								class="">柳州</a>
+						
+							<a href="http://city.zhenai.com/longnan1"
+								class="">陇南</a>
+						
+							<a href="http://city.zhenai.com/longyan"
+								class="">龙岩</a>
+						
+							<a href="http://city.zhenai.com/loudi"
+								class="">娄底</a>
+						
+							<a href="http://city.zhenai.com/luohe"
+								class="">漯河</a>
+						
+							<a href="http://city.zhenai.com/luoyang"
+								class="">洛阳</a>
+						
+							<a href="http://city.zhenai.com/luzhou"
+								class="">泸州</a>
+						
+							<a href="http://city.zhenai.com/lvliang"
+								class="">吕梁</a>
+						
+					
+			</dd>
+		
+			<dt>M</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/maanshan"
+								class="">马鞍山</a>
+						
+							<a href="http://city.zhenai.com/maoming"
+								class="">茂名</a>
+						
+							<a href="http://city.zhenai.com/meishan"
+								class="">眉山</a>
+						
+							<a href="http://city.zhenai.com/meizhou"
+								class="">梅州</a>
+						
+							<a href="http://city.zhenai.com/mentougou"
+								class="">门头沟</a>
+						
+							<a href="http://city.zhenai.com/mianyang"
+								class="">绵阳</a>
+						
+							<a href="http://city.zhenai.com/miaoli"
+								class="">苗栗</a>
+						
+							<a href="http://city.zhenai.com/minxing"
+								class="">闵行</a>
+						
+							<a href="http://city.zhenai.com/miyun"
+								class="">密云</a>
+						
+							<a href="http://city.zhenai.com/mudanjiang"
+								class="">牡丹江</a>
+						
+					
+			</dd>
+		
+			<dt>N</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/nanan1"
+								class="">南岸</a>
+						
+							<a href="http://city.zhenai.com/nanchang"
+								class="">南昌</a>
+						
+							<a href="http://city.zhenai.com/nanchong"
+								class="">南充</a>
+						
+							<a href="http://city.zhenai.com/nanchuan"
+								class="">南川</a>
+						
+							<a href="http://city.zhenai.com/nanjing"
+								class="">南京</a>
+						
+							<a href="http://city.zhenai.com/nankai"
+								class="">南开</a>
+						
+							<a href="http://city.zhenai.com/nanning"
+								class="">南宁</a>
+						
+							<a href="http://city.zhenai.com/nanping"
+								class="">南平</a>
+						
+							<a href="http://city.zhenai.com/nantong"
+								class="">南通</a>
+						
+							<a href="http://city.zhenai.com/nantou"
+								class="">南投</a>
+						
+							<a href="http://city.zhenai.com/nanyang"
+								class="">南阳</a>
+						
+							<a href="http://city.zhenai.com/naqu"
+								class="">那曲</a>
+						
+							<a href="http://city.zhenai.com/neijiang"
+								class="">内江</a>
+						
+							<a href="http://city.zhenai.com/neimenggu"
+								class="">内蒙古</a>
+						
+							<a href="http://city.zhenai.com/ningbo"
+								class="">宁波</a>
+						
+							<a href="http://city.zhenai.com/ningde"
+								class="">宁德</a>
+						
+							<a href="http://city.zhenai.com/ninghe"
+								class="">宁河</a>
+						
+							<a href="http://city.zhenai.com/ningxia"
+								class="">宁夏</a>
+						
+							<a href="http://city.zhenai.com/nujiang"
+								class="">怒江</a>
+						
+					
+			</dd>
+		
+			<dt>P</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/panjin"
+								class="">盘锦</a>
+						
+							<a href="http://city.zhenai.com/panzhihua"
+								class="">攀枝花</a>
+						
+							<a href="http://city.zhenai.com/penghu"
+								class="">澎湖</a>
+						
+							<a href="http://city.zhenai.com/pengshui"
+								class="">彭水</a>
+						
+							<a href="http://city.zhenai.com/pingdingshan"
+								class="">平顶山</a>
+						
+							<a href="http://city.zhenai.com/pingdong"
+								class="">屏东</a>
+						
+							<a href="http://city.zhenai.com/pinggu"
+								class="">平谷</a>
+						
+							<a href="http://city.zhenai.com/pingliang"
+								class="">平凉</a>
+						
+							<a href="http://city.zhenai.com/pingxiang2"
+								class="">萍乡</a>
+						
+							<a href="http://city.zhenai.com/pudongxin"
+								class="">浦东新</a>
+						
+							<a href="http://city.zhenai.com/puer"
+								class="">普洱</a>
+						
+							<a href="http://city.zhenai.com/putian"
+								class="">莆田</a>
+						
+							<a href="http://city.zhenai.com/putuo"
+								class="">普陀</a>
+						
+							<a href="http://city.zhenai.com/puyang1"
+								class="">濮阳</a>
+						
+					
+			</dd>
+		
+			<dt>Q</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/qiandong"
+								class="">黔东</a>
+						
+							<a href="http://city.zhenai.com/qianjiang1"
+								class="">黔江</a>
+						
+							<a href="http://city.zhenai.com/qiannan"
+								class="">黔南</a>
+						
+							<a href="http://city.zhenai.com/qianxi2"
+								class="">黔西</a>
+						
+							<a href="http://city.zhenai.com/qijiang"
+								class="">綦江</a>
+						
+							<a href="http://city.zhenai.com/qingdao"
+								class="">青岛</a>
+						
+							<a href="http://city.zhenai.com/qinghai"
+								class="">青海</a>
+						
+							<a href="http://city.zhenai.com/qingpu"
+								class="">青浦</a>
+						
+							<a href="http://city.zhenai.com/qingyang2"
+								class="">庆阳</a>
+						
+							<a href="http://city.zhenai.com/qingyuan3"
+								class="">清远</a>
+						
+							<a href="http://city.zhenai.com/qinhuangdao"
+								class="">秦皇岛</a>
+						
+							<a href="http://city.zhenai.com/qinzhou"
+								class="">钦州</a>
+						
+							<a href="http://city.zhenai.com/qiqihaer"
+								class="">齐齐哈尔</a>
+						
+							<a href="http://city.zhenai.com/qitaihe"
+								class="">七台河</a>
+						
+							<a href="http://city.zhenai.com/quanzhou1"
+								class="">泉州</a>
+						
+							<a href="http://city.zhenai.com/qujing"
+								class="">曲靖</a>
+						
+							<a href="http://city.zhenai.com/quzhou1"
+								class="">衢州</a>
+						
+					
+			</dd>
+		
+			<dt>R</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/rikaze"
+								class="">日喀则</a>
+						
+							<a href="http://city.zhenai.com/rizhao"
+								class="">日照</a>
+						
+							<a href="http://city.zhenai.com/rongchang"
+								class="">荣昌</a>
+						
+					
+			</dd>
+		
+			<dt>S</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/sanmenxia"
+								class="">三门峡</a>
+						
+							<a href="http://city.zhenai.com/sanming"
+								class="">三明</a>
+						
+							<a href="http://city.zhenai.com/sanya"
+								class="">三亚</a>
+						
+							<a href="http://city.zhenai.com/shandong"
+								class="">山东</a>
+						
+							<a href="http://city.zhenai.com/shanghai"
+								class="">上海</a>
+						
+							<a href="http://city.zhenai.com/shangluo"
+								class="">商洛</a>
+						
+							<a href="http://city.zhenai.com/shangqiu"
+								class="">商丘</a>
+						
+							<a href="http://city.zhenai.com/shangrao"
+								class="">上饶</a>
+						
+							<a href="http://city.zhenai.com/shannan"
+								class="">山南</a>
+						
+							<a href="http://city.zhenai.com/shantou"
+								class="">汕头</a>
+						
+							<a href="http://city.zhenai.com/shanwei"
+								class="">汕尾</a>
+						
+							<a href="http://city.zhenai.com/shanxi"
+								class="">山西</a>
+						
+							<a href="http://city.zhenai.com/shanxi1"
+								class="">陕西</a>
+						
+							<a href="http://city.zhenai.com/shaoguan"
+								class="">韶关</a>
+						
+							<a href="http://city.zhenai.com/shaoxing"
+								class="">绍兴</a>
+						
+							<a href="http://city.zhenai.com/shaoyang"
+								class="">邵阳</a>
+						
+							<a href="http://city.zhenai.com/shapingba"
+								class="">沙坪坝</a>
+						
+							<a href="http://city.zhenai.com/shenyang"
+								class="">沈阳</a>
+						
+							<a href="http://city.zhenai.com/shenzhen"
+								class="">深圳</a>
+						
+							<a href="http://city.zhenai.com/shijiazhuang"
+								class="">石家庄</a>
+						
+							<a href="http://city.zhenai.com/shijingshan"
+								class="">石景山</a>
+						
+							<a href="http://city.zhenai.com/shiyan"
+								class="">十堰</a>
+						
+							<a href="http://city.zhenai.com/shizhu"
+								class="">石柱</a>
+						
+							<a href="http://city.zhenai.com/shizuishan"
+								class="">石嘴山</a>
+						
+							<a href="http://city.zhenai.com/shuangyashan"
+								class="">双鸭山</a>
+						
+							<a href="http://city.zhenai.com/shunyi"
+								class="">顺义</a>
+						
+							<a href="http://city.zhenai.com/shuozhou"
+								class="">朔州</a>
+						
+							<a href="http://city.zhenai.com/sichuan"
+								class="">四川</a>
+						
+							<a href="http://city.zhenai.com/siping"
+								class="">四平</a>
+						
+							<a href="http://city.zhenai.com/songjiang"
+								class="">松江</a>
+						
+							<a href="http://city.zhenai.com/songyuan"
+								class="">松原</a>
+						
+							<a href="http://city.zhenai.com/suihua"
+								class="">绥化</a>
+						
+							<a href="http://city.zhenai.com/suining2"
+								class="">遂宁</a>
+						
+							<a href="http://city.zhenai.com/suizhou"
+								class="">随州</a>
+						
+							<a href="http://city.zhenai.com/suqian"
+								class="">宿迁</a>
+						
+							<a href="http://city.zhenai.com/suzhou"
+								class="">苏州</a>
+						
+							<a href="http://city.zhenai.com/suzhou1"
+								class="">宿州</a>
+						
+					
+			</dd>
+		
+			<dt>T</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/tacheng"
+								class="">塔城</a>
+						
+							<a href="http://city.zhenai.com/taian1"
+								class="">泰安</a>
+						
+							<a href="http://city.zhenai.com/taibei"
+								class="">台北</a>
+						
+							<a href="http://city.zhenai.com/taidong"
+								class="">台东</a>
+						
+							<a href="http://city.zhenai.com/tainan"
+								class="">台南</a>
+						
+							<a href="http://city.zhenai.com/taiwan"
+								class="">台湾</a>
+						
+							<a href="http://city.zhenai.com/taiyuan"
+								class="">太原</a>
+						
+							<a href="http://city.zhenai.com/taizhong"
+								class="">台中</a>
+						
+							<a href="http://city.zhenai.com/taizhou"
+								class="">泰州</a>
+						
+							<a href="http://city.zhenai.com/taizhou1"
+								class="">台州</a>
+						
+							<a href="http://city.zhenai.com/tangshan"
+								class="">唐山</a>
+						
+							<a href="http://city.zhenai.com/taoyuan1"
+								class="">桃园</a>
+						
+							<a href="http://city.zhenai.com/tianjin"
+								class="">天津</a>
+						
+							<a href="http://city.zhenai.com/tianshui"
+								class="">天水</a>
+						
+							<a href="http://city.zhenai.com/tieling"
+								class="">铁岭</a>
+						
+							<a href="http://city.zhenai.com/tongchuan"
+								class="">铜川</a>
+						
+							<a href="http://city.zhenai.com/tonghua"
+								class="">通化</a>
+						
+							<a href="http://city.zhenai.com/tongliang"
+								class="">铜梁</a>
+						
+							<a href="http://city.zhenai.com/tongliao"
+								class="">通辽</a>
+						
+							<a href="http://city.zhenai.com/tongling"
+								class="">铜陵</a>
+						
+							<a href="http://city.zhenai.com/tongnan"
+								class="">潼南</a>
+						
+							<a href="http://city.zhenai.com/tongren1"
+								class="">铜仁</a>
+						
+							<a href="http://city.zhenai.com/tongzhou"
+								class="">通州</a>
+						
+							<a href="http://city.zhenai.com/tulufan"
+								class="">吐鲁番</a>
+						
+					
+			</dd>
+		
+			<dt>W</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/wanzhou"
+								class="">万州</a>
+						
+							<a href="http://city.zhenai.com/weifang"
+								class="">潍坊</a>
+						
+							<a href="http://city.zhenai.com/weihai"
+								class="">威海</a>
+						
+							<a href="http://city.zhenai.com/weinan"
+								class="">渭南</a>
+						
+							<a href="http://city.zhenai.com/wenshan"
+								class="">文山</a>
+						
+							<a href="http://city.zhenai.com/wenzhou"
+								class="">温州</a>
+						
+							<a href="http://city.zhenai.com/wuhai"
+								class="">乌海</a>
+						
+							<a href="http://city.zhenai.com/wuhan"
+								class="">武汉</a>
+						
+							<a href="http://city.zhenai.com/wuhu"
+								class="">芜湖</a>
+						
+							<a href="http://city.zhenai.com/wulanchabu"
+								class="">乌兰察布</a>
+						
+							<a href="http://city.zhenai.com/wulong"
+								class="">武隆</a>
+						
+							<a href="http://city.zhenai.com/wulumuqi"
+								class="">乌鲁木齐</a>
+						
+							<a href="http://city.zhenai.com/wuqing"
+								class="">武清</a>
+						
+							<a href="http://city.zhenai.com/wushan1"
+								class="">巫山</a>
+						
+							<a href="http://city.zhenai.com/wuwei1"
+								class="">武威</a>
+						
+							<a href="http://city.zhenai.com/wuxi"
+								class="">无锡</a>
+						
+							<a href="http://city.zhenai.com/wuxi1"
+								class="">巫溪</a>
+						
+							<a href="http://city.zhenai.com/wuzhong"
+								class="">吴忠</a>
+						
+							<a href="http://city.zhenai.com/wuzhou"
+								class="">梧州</a>
+						
+					
+			</dd>
+		
+			<dt>X</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/xiamen"
+								class="">厦门</a>
+						
+							<a href="http://city.zhenai.com/xian"
+								class="">西安</a>
+						
+							<a href="http://city.zhenai.com/xianggang"
+								class="">香港</a>
+						
+							<a href="http://city.zhenai.com/xiangtan"
+								class="">湘潭</a>
+						
+							<a href="http://city.zhenai.com/xiangxi"
+								class="">湘西</a>
+						
+							<a href="http://city.zhenai.com/xiangyang"
+								class="">襄阳</a>
+						
+							<a href="http://city.zhenai.com/xianning"
+								class="">咸宁</a>
+						
+							<a href="http://city.zhenai.com/xianyang"
+								class="">咸阳</a>
+						
+							<a href="http://city.zhenai.com/xiaogan"
+								class="">孝感</a>
+						
+							<a href="http://city.zhenai.com/xicheng"
+								class="">西城</a>
+						
+							<a href="http://city.zhenai.com/xilinguolemeng"
+								class="">锡林郭勒盟</a>
+						
+							<a href="http://city.zhenai.com/xinbei"
+								class="">新北</a>
+						
+							<a href="http://city.zhenai.com/xingan2"
+								class="">兴安</a>
+						
+							<a href="http://city.zhenai.com/xingtai"
+								class="">邢台</a>
+						
+							<a href="http://city.zhenai.com/xining"
+								class="">西宁</a>
+						
+							<a href="http://city.zhenai.com/xinjiang"
+								class="">新疆</a>
+						
+							<a href="http://city.zhenai.com/xinjie"
+								class="">新界</a>
+						
+							<a href="http://city.zhenai.com/xinxiang"
+								class="">新乡</a>
+						
+							<a href="http://city.zhenai.com/xinyang"
+								class="">信阳</a>
+						
+							<a href="http://city.zhenai.com/xinyu"
+								class="">新余</a>
+						
+							<a href="http://city.zhenai.com/xinzhou1"
+								class="">忻州</a>
+						
+							<a href="http://city.zhenai.com/xinzhu"
+								class="">新竹</a>
+						
+							<a href="http://city.zhenai.com/xiqing"
+								class="">西青</a>
+						
+							<a href="http://city.zhenai.com/xishuangbanna"
+								class="">西双版纳</a>
+						
+							<a href="http://city.zhenai.com/xiushan"
+								class="">秀山</a>
+						
+							<a href="http://city.zhenai.com/xizang"
+								class="">西藏</a>
+						
+							<a href="http://city.zhenai.com/xuancheng"
+								class="">宣城</a>
+						
+							<a href="http://city.zhenai.com/xuchang"
+								class="">许昌</a>
+						
+							<a href="http://city.zhenai.com/xuhui"
+								class="">徐汇</a>
+						
+							<a href="http://city.zhenai.com/xuzhou"
+								class="">徐州</a>
+						
+					
+			</dd>
+		
+			<dt>Y</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/yaan"
+								class="">雅安</a>
+						
+							<a href="http://city.zhenai.com/yanan"
+								class="">延安</a>
+						
+							<a href="http://city.zhenai.com/yanbian1"
+								class="">延边</a>
+						
+							<a href="http://city.zhenai.com/yancheng"
+								class="">盐城</a>
+						
+							<a href="http://city.zhenai.com/yangjiang"
+								class="">阳江</a>
+						
+							<a href="http://city.zhenai.com/yangpu"
+								class="">杨浦</a>
+						
+							<a href="http://city.zhenai.com/yangquan"
+								class="">阳泉</a>
+						
+							<a href="http://city.zhenai.com/yangzhou"
+								class="">扬州</a>
+						
+							<a href="http://city.zhenai.com/yanqing"
+								class="">延庆</a>
+						
+							<a href="http://city.zhenai.com/yantai"
+								class="">烟台</a>
+						
+							<a href="http://city.zhenai.com/yibin"
+								class="">宜宾</a>
+						
+							<a href="http://city.zhenai.com/yichang"
+								class="">宜昌</a>
+						
+							<a href="http://city.zhenai.com/yichun"
+								class="">宜春</a>
+						
+							<a href="http://city.zhenai.com/yichun1"
+								class="">伊春</a>
+						
+							<a href="http://city.zhenai.com/yilan1"
+								class="">宜兰</a>
+						
+							<a href="http://city.zhenai.com/yili"
+								class="">伊犁</a>
+						
+							<a href="http://city.zhenai.com/yinchuan"
+								class="">银川</a>
+						
+							<a href="http://city.zhenai.com/yingkou"
+								class="">营口</a>
+						
+							<a href="http://city.zhenai.com/yingtan"
+								class="">鹰潭</a>
+						
+							<a href="http://city.zhenai.com/yiyang2"
+								class="">益阳</a>
+						
+							<a href="http://city.zhenai.com/yongchuan"
+								class="">永川</a>
+						
+							<a href="http://city.zhenai.com/yongzhou"
+								class="">永州</a>
+						
+							<a href="http://city.zhenai.com/youyang"
+								class="">酉阳</a>
+						
+							<a href="http://city.zhenai.com/yubei"
+								class="">渝北</a>
+						
+							<a href="http://city.zhenai.com/yueyang"
+								class="">岳阳</a>
+						
+							<a href="http://city.zhenai.com/yulin"
+								class="">榆林</a>
+						
+							<a href="http://city.zhenai.com/yulin1"
+								class="">玉林</a>
+						
+							<a href="http://city.zhenai.com/yuncheng1"
+								class="">运城</a>
+						
+							<a href="http://city.zhenai.com/yunfu"
+								class="">云浮</a>
+						
+							<a href="http://city.zhenai.com/yunlin"
+								class="">云林</a>
+						
+							<a href="http://city.zhenai.com/yunnan"
+								class="">云南</a>
+						
+							<a href="http://city.zhenai.com/yunyang"
+								class="">云阳</a>
+						
+							<a href="http://city.zhenai.com/yushu1"
+								class="">玉树</a>
+						
+							<a href="http://city.zhenai.com/yuxi"
+								class="">玉溪</a>
+						
+							<a href="http://city.zhenai.com/yuzhong1"
+								class="">渝中</a>
+						
+					
+			</dd>
+		
+			<dt>Z</dt>
+			<dd>
+				
+						
+							<a href="http://city.zhenai.com/zaozhuang"
+								class="">枣庄</a>
+						
+							<a href="http://city.zhenai.com/zhabei"
+								class="">闸北</a>
+						
+							<a href="http://city.zhenai.com/zhanghua"
+								class="">彰化</a>
+						
+							<a href="http://city.zhenai.com/zhangjiajie"
+								class="">张家界</a>
+						
+							<a href="http://city.zhenai.com/zhangjiakou"
+								class="">张家口</a>
+						
+							<a href="http://city.zhenai.com/zhangye"
+								class="">张掖</a>
+						
+							<a href="http://city.zhenai.com/zhangzhou"
+								class="">漳州</a>
+						
+							<a href="http://city.zhenai.com/zhanjiang"
+								class="">湛江</a>
+						
+							<a href="http://city.zhenai.com/zhaoqing"
+								class="">肇庆</a>
+						
+							<a href="http://city.zhenai.com/zhaotong"
+								class="">昭通</a>
+						
+							<a href="http://city.zhenai.com/zhejiang"
+								class="">浙江</a>
+						
+							<a href="http://city.zhenai.com/zhengzhou"
+								class="">郑州</a>
+						
+							<a href="http://city.zhenai.com/zhenjiang"
+								class="">镇江</a>
+						
+							<a href="http://city.zhenai.com/zhongshan3"
+								class="">中山</a>
+						
+							<a href="http://city.zhenai.com/zhongwei"
+								class="">中卫</a>
+						
+							<a href="http://city.zhenai.com/zhongxian"
+								class="">忠县</a>
+						
+							<a href="http://city.zhenai.com/zhoukou"
+								class="">周口</a>
+						
+							<a href="http://city.zhenai.com/zhoushan"
+								class="">舟山</a>
+						
+							<a href="http://city.zhenai.com/zhuhai"
+								class="">珠海</a>
+						
+							<a href="http://city.zhenai.com/zhumadian"
+								class="">驻马店</a>
+						
+							<a href="http://city.zhenai.com/zhuzhou"
+								class="">株洲</a>
+						
+							<a href="http://city.zhenai.com/zibo"
+								class="">淄博</a>
+						
+							<a href="http://city.zhenai.com/zigong"
+								class="">自贡</a>
+						
+							<a href="http://city.zhenai.com/ziyang1"
+								class="">资阳</a>
+						
+							<a href="http://city.zhenai.com/zunyi"
+								class="">遵义</a>
+						
+					
+			</dd>
+		
+	</dl>
+</article>
+
+
+		<div class="hot-city seo-city">
+			<div class="city-wrap frameW">
+				<div class="city-list clearfix limit-44">
+					热门征婚：<a target="_blank" href="http://www.zhenai.com/zhenghun/beijing">北京征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/xian">西安征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/handan">邯郸征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/xuzhou">徐州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/shanghai">上海征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/zhengzhou">郑州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/jinan">济南征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/nanjing">南京征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/qingdao">青岛征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/shenzhen">深圳征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/guangzhou">广州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/yantai">烟台征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/xiamen">厦门征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/huaian">淮安征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/shijiazhuang">石家庄征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/chengdu">成都征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/shenyang">沈阳征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/haerbin">哈尔滨征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/enshi">恩施征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/changsha">长沙征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/hefei">合肥征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/dongying">东营征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/wuxi">无锡征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/zhoukou">周口征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/nanning">南宁征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/changchun">长春征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/luoyang">洛阳征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/foshan">佛山征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/maoming">茂名征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/ganzhou">赣州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/dalian">大连征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/suzhou">苏州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/ningbo">宁波征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/wenzhou">温州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/dongguan">东莞征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/kunming">昆明征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/chongqing">重庆征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/wuhan">武汉征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/tianjin">天津征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/hangzhou">杭州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/fuzhou">福州征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/nanchang">南昌征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/taiyuan">太原征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/haikou">海口征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/quanzhou1">泉州征婚</a>
+					<br/>热门交友：<a target="_blank" href="http://www.zhenai.com/jiaoyou/beijing">北京交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/shanghai">上海交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/shenzhen">深圳交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/xian">西安交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/handan">邯郸交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/nanjing">南京交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/shenyang">沈阳交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/wuhan">武汉交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/yantai">烟台交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/qingdao">青岛交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/shijiazhuang">石家庄交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/ningbo">宁波交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/chengdu">成都交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/guangzhou">广州交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/xiamen">厦门交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/jinan">济南交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/zhengzhou">郑州交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/hangzhou">杭州交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/suzhou">苏州交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/weifang">潍坊交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/weihai">威海交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/nanchang">南昌交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/hefei">合肥交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/ganzhou">赣州交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/changsha">长沙交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/wuxi">无锡交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/fuzhou">福州交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/dalian">大连交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/yangzhou">扬州交友</a><a target="_blank" href="http://www.zhenai.com/jiaoyou/xuzhou">徐州交友</a>
+				</div>
+				
+					<div class="city-list clearfix">
+						友情链接:
+				        	<a target="_blank" href="http://www.jia.com/chongqing/">重庆装修</a>
+				        
+				        	<a target="_blank" href="http://news.zocai.com  ">钻戒定制</a>
+				        
+				        	<a target="_blank" href="http://www.zswxy.cn/huazhuangmeirong">化妆美容排行榜</a>
+				        
+				        	<a target="_blank" href="http://	www.nanrenwo.net/mingyan/">名言名句 </a>
+				        
+				        	<a target="_blank" href="http://www.lawtime.cn/taiyuan">太原律师</a>
+				        
+				        	<a target="_blank" href="http://www.tianqi30.cn/ ">天气预报30天</a>
+				        
+				        	<a target="_blank" href="http://cet4.koolearn.com/beikao/">英语四级复习资料</a>
+				        
+				        	<a target="_blank" href="http://www.nanrenwo.net/paoniu/">男性泡妞</a>
+				        
+				        	<a target="_blank" href="http://gqyd.airmb.com  ">古泉园地</a>
+				        
+				        	<a target="_blank" href="http://www.blove.net.cn/">BLOVE婚戒</a>
+				        
+				        	<a target="_blank" href="http://www.ximalaya.com/yule/">娱乐新闻</a>
+				        
+				        	<a target="_blank" href="http://bq.kongfz.com">书籍大全</a>
+				        
+				        	<a target="_blank" href="http://www.zhenai.com/news/">珍爱婚恋</a>
+				        
+				        	<a target="_blank" href="http://www.51xunai.cn">寻爱网</a>
+				        
+					</div>
+				
+			</div>
+		</div>
+	
+
+<footer class="footer">
+	<div class="frameW clearfix">
+		<div class="about">
+			<div class="quick"><a target="_blank" href="http://about.zhenai.com/" >关于我们</a>|<a target="_blank" href="http://contact.zhenai.com/" >联系我们</a>|<a target="_blank" href="http://zhenai.zhiye.com/" >加入我们</a>|<a target="_blank" href="http://about.zhenai.com/huoban" rel="nofollow">合作伙伴</a>|<a target="_blank" href="http://profile.zhenai.com/personal/getguestbookbegin.jsps" rel="nofollow">意见反馈</a>|<a href="http://www.zhenai.com/sitemap.html" target="_blank">网站地图</a>
+				|<a href="http://www.zhenai.com/ahelpcenter/index.jsp" target="_blank">帮助中心</a>|<a href="http://album.zhenai.com" target="_blank">珍爱会员</a>|<a href="http://city.zhenai.com/" target="_blank">珍爱相亲</a>|<a href="https://i.zhenai.com/m/client/intro/agree.html" target="_blank">珍爱网服务协议</a>|<a href="http://register.zhenai.com/register/intimacy.jsp" target="_blank">个人信息保护政策</a></div>
+			<div class="brand grayL"><span>品牌：12年专业婚恋服务</span>&nbsp;&nbsp;<span>专业：庞大的资深红娘队伍</span>&nbsp;&nbsp;<span>真实：诚信会员验证体系</span></div>
+			<div class="contact grayL"><span>客服热线：4001-520-520（周一至周日：9:00-21:00）</span><span>客服信箱：kefu@zhenai.com</span></div>
+			<div class="contact grayL"><span><a href="http://profile.zhenai.com/v2/sys/reportEntry.do" target="_blank" rel="nofollow">违法和不良信息举报</a></span>&nbsp;&nbsp;<span>违法和不良信息举报专线：4008829288</span>&nbsp;&nbsp;<span>举报信箱：<a href="mailto:jubao@zhenai.com" class="underlines" rel="nofollow">jubao@zhenai.com</a></span></div>
+		</div>
+		<div class="copyright grayL">
+			<p>Copyright &copy; 2005-2018 版权所有：深圳市珍爱网信息技术有限公司</p>
+			<p>增值电信业务经营许可证：粤B2-20040382   <a target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备09157619号-1</a> 乙测资字4410775 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502000534" class="gongwang"><img src="/zhenai3/zhenai2015/img/myhome/gongan.png" alt=""></a>  粤公网安备 44030502000534号</p>
+			<div class="out-link" id="foot_link">
+				<a title="网文证" href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/7C7C3F8EFF5648A2950931B65DF13B87" class="link10" target="_blank" rel="nofollow">
+					<img src="http://i2.zastatic.com/zhenai3/zhenai2015/img/myhome/wen_bc81e4f.png" alt="">
+				</a>
+				<a target="_blank" title="深圳网监备案" href="http://szcert.ebs.org.cn/6398bd09-b195-4fd9-a010-e1fea403a766" class="link5" rel="nofollow"></a>
+				<a title="深圳举报中心" href="http://szwljb.gov.cn/" class="link6" target="_blank"  rel="nofollow"></a>
+				<a title="违法和不良信息举报中心" href="http://www.12377.cn/" class="link3" target="_blank"  rel="nofollow"></a>
+				<a title="诚信示范网站" href="https://search.szfw.org/cert/l/CX20150630010588010670" class="link4" target="_blank" rel="nofollow"></a>
+				<a title="AAA级信用企业" href="http://www.itrust.org.cn/Home/Index/itrust_certifi?wm=1761973720" class="link7" target="_blank" rel="nofollow"></a>
+			</div>
+		</div>
+	</div>
+</footer>>
+</body>
+<script type="text/javascript">
+var type = '2';
+(function(){
+	seoStat(type);
+})();
+</script>
+</html>
