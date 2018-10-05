@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"testing"
 	"io/ioutil"
+	"testing"
 )
 
 const expectedCityCount = 470

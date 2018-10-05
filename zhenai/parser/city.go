@@ -13,7 +13,7 @@ func ParseCity(contents []byte) engine.ParseResult {
 	result := engine.ParseResult{}
 	for _, match := range matches {
 		result.Requests = append(result.Requests, engine.Request{
-			Url: string(match[1]), // url
+			Url:    string(match[1]), // url
 			Parser: engine.NoopParser,
 		})
 

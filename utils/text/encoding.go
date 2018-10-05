@@ -12,7 +12,6 @@ func ConvertToString(src string, srcCode string, tagCode string) []byte {
 	return cdata
 }
 
-
 func Gbk2Utf8(content []byte) []byte {
 	return ConvertToString(string(content), "gbk", "utf-8")
 }

@@ -1,14 +1,14 @@
 package fetcher
 
 import (
+	"github.com/GerryLon/go-crawler/utils/text"
+	"io/ioutil"
 	"net/http"
 	"time"
-	"io/ioutil"
-	"github.com/GerryLon/go-crawler/utils/text"
 )
 
 // fetch contents from giving url
-func Fetch(url string) ([]byte, error)  {
+func Fetch(url string) ([]byte, error) {
 	client := http.Client{
 		Timeout: time.Second * 30,
 	}
@@ -34,6 +34,3 @@ func Fetch(url string) ([]byte, error)  {
 	// TODO: should determine encoding automatically
 	return text.Gbk2Utf8(contents), nil
 }
-
-
-
