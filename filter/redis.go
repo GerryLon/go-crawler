@@ -12,7 +12,7 @@ import (
 
 // de duplication using redis
 type RedisDedupFilter struct {
-	DedupFilter
+	DuplicateFilter
 	pool *redigo.Pool
 }
 
@@ -53,7 +53,7 @@ func (filter *RedisDedupFilter) Has(key string) bool {
 	conn := getRedisConn(filter)
 	defer conn.Close()
 
-	reply, err := conn.Do("EXISTS", text.MD5(key))
+	reply, err := conn.Do("HEXISTS", config.RedisHSetKey, text.MD5(key))
 	if err != nil {
 		log.Printf("error occured when calling Has: %v", err)
 	}
@@ -66,7 +66,7 @@ func (filter *RedisDedupFilter) Get(key string) string {
 	conn := getRedisConn(filter)
 	defer conn.Close()
 	md5OfKey := text.MD5(key)
-	reply, err := conn.Do("GET", md5OfKey)
+	reply, err := conn.Do("HGET", config.RedisHSetKey, md5OfKey)
 
 	if err != nil {
 		log.Printf("error occured when calling Get(%s): %v", key, err)
@@ -84,7 +84,7 @@ func (filter *RedisDedupFilter) setNX(key string) bool {
 	conn := getRedisConn(filter)
 	defer conn.Close()
 	md5OfKey := text.MD5(key)
-	reply, err := conn.Do("SETNX", md5OfKey, key)
+	reply, err := conn.Do("HSETNX", config.RedisHSetKey, md5OfKey, key)
 
 	if err != nil {
 		log.Printf("error occured when calling Get(%s): %v", key, err)

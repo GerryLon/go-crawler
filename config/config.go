@@ -7,4 +7,5 @@ const (
 	RedisPassword    = "gerrylon"
 	RedisMaxActive   = 10
 	RedisPoolMaxIdle = 5
+	RedisHSetKey     = "zhenaiwang"
 )

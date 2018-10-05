@@ -24,17 +24,17 @@ func ParseCity(contents []byte) engine.ParseResult {
 		result.Items = append(result.Items, string(match[2]))
 	}
 
-	// relative cities
-	matches = cityUrlRe.FindAllSubmatch(contents, -1)
-	result = engine.ParseResult{}
-	for _, match := range matches {
-		result.Requests = append(result.Requests, engine.Request{
-			Url:    string(match[1]), // url
-			Parser: ParseCityList,
-		})
-
-		result.Items = append(result.Items, string(match[2]))
-	}
+	//// relative cities
+	//matches = cityUrlRe.FindAllSubmatch(contents, -1)
+	//result = engine.ParseResult{}
+	//for _, match := range matches {
+	//	result.Requests = append(result.Requests, engine.Request{
+	//		Url:    string(match[1]), // url
+	//		Parser: ParseCityList,
+	//	})
+	//
+	//	result.Items = append(result.Items, string(match[2]))
+	//}
 
 	return result
 }

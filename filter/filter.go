@@ -8,6 +8,6 @@ type Filter interface {
 	Set(key string) bool
 }
 
-// de duplication filter
-type DedupFilter struct {
+// dereplication filter
+type DuplicateFilter struct {
 }
