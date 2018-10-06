@@ -2,11 +2,12 @@ package model
 
 // user profile
 type Profile struct {
-	Name          string
-	Age           int
+	Name          string // 用户名
+	Homepage      string // 个人主页地址（一般为用户详情页面）
+	Age           int    // 年龄
 	Gender        string // 性别
-	Height        string // 身高
-	Weight        string // 体重
+	Height        int    // 身高: cm
+	Weight        int    // 体重: kg
 	Salary        string // 收入
 	Marriage      string // 婚姻状况
 	Education     string // 学历

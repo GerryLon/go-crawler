@@ -4,6 +4,7 @@ import (
 	"github.com/GerryLon/go-crawler/fetcher"
 	"github.com/GerryLon/go-crawler/filter"
 	"log"
+	"math/rand"
 	"strings"
 	"time"
 )
@@ -45,6 +46,7 @@ func Run(seeds ...Request) {
 			log.Printf("Got item %v\n", item)
 		}
 
-		time.Sleep(time.Second * 2)
+		// rand.Intn(n) => [0,n)
+		time.Sleep(time.Second * time.Duration(1+rand.Intn(3)))
 	}
 }

@@ -10,31 +10,32 @@ import (
 // 正则集合
 var reMapping = map[string]*regexp.Regexp{
 	"Age":           regexp.MustCompile(`<td><span class="label">年龄：</span>(\d+)岁</td>`),
-	"Gender":        regexp.MustCompile(`<td><span class="label">性别：</span><span field="">(女)</span></td>`),
-	"Height":        regexp.MustCompile(`<td><span class="label">身高：</span><span field="">([^<]+)</span></td>`),
-	"Weight":        regexp.MustCompile(`<td><span class="label">体重：</span><span field="">([^<]+)</span></td>`),
+	"Gender":        regexp.MustCompile(`<td><span class="label">性别：</span><span field="">([男女])</span></td>`),
+	"Height":        regexp.MustCompile(`<td><span class="label">身高：</span><span field="">(\d+)[^<]*</span></td>`),
+	"Weight":        regexp.MustCompile(`<td><span class="label">体重：</span><span field="">(\d+)[^<]*</span></td>`),
 	"Salary":        regexp.MustCompile(`<td><span class="label">月收入：</span>([^>]+)</td>`),
 	"Marriage":      regexp.MustCompile(`<td><span class="label">婚况：</span>([^>]+)</td>`),
 	"Education":     regexp.MustCompile(`<td><span class="label">学历：</span>([^>]+)</td>`),
-	"Occupation":    regexp.MustCompile(`<td><span class="label">职业： </span>([^>]+)</td>`),
-	"NativePlace":   regexp.MustCompile(`<td><span class="label">籍贯：</span>([^>]+)</td>`),
+	"Occupation":    regexp.MustCompile(`<td><span class="label">职业： </span>(\p{Han}+)</td>`),
+	"NativePlace":   regexp.MustCompile(`<td><span class="label">籍贯：</span>(\p{Han}+)</td>`),
 	"Workplace":     regexp.MustCompile(`<td><span class="label">工作地：</span>([^>]+)</td>`),
 	"Constellation": regexp.MustCompile(`<td><span class="label">星座：</span>([^>]+)</td>`),
 	"Zodiac":        regexp.MustCompile(`<td><span class="label">生肖：</span><span field="">([^>]+)</span></td>`),
-	"House":         regexp.MustCompile(`<td><span class="label">住房条件：</span><span field="">([^>]+)</span></td>`),
-	"Car":           regexp.MustCompile(`<td><span class="label">是否购车：</span><span field="">([^>]+)</span></td>`),
+	"House":         regexp.MustCompile(`<td><span class="label">住房条件：</span><span field="">(\p{Han}+)</span></td>`),
+	"Car":           regexp.MustCompile(`<td><span class="label">是否购车：</span><span field="">(\p{Han}+)</span></td>`),
 	"Pic":           regexp.MustCompile(`<img data-big-img="([^"]+)"[^>]*>`),
 }
 
-func ParseProfile(contents []byte, name string) engine.ParseResult {
+func ParseProfile(contents []byte, name string, homepage string) engine.ParseResult {
 	result := engine.ParseResult{}
 	profile := model.Profile{}
 
 	profile.Name = name
+	profile.Homepage = homepage
 	profile.Age = extractInt(contents, reMapping["Age"])
 	profile.Gender = extractString(contents, reMapping["Gender"])
-	profile.Height = extractString(contents, reMapping["Height"])
-	profile.Weight = extractString(contents, reMapping["Weight"])
+	profile.Height = extractInt(contents, reMapping["Height"])
+	profile.Weight = extractInt(contents, reMapping["Weight"])
 	profile.Salary = extractString(contents, reMapping["Salary"])
 	profile.Marriage = extractString(contents, reMapping["Marriage"])
 	profile.Education = extractString(contents, reMapping["Education"])
@@ -65,7 +66,7 @@ func extractInt(contents []byte, re *regexp.Regexp) int {
 	i, err := strconv.Atoi(extractString(contents, re))
 
 	if err != nil {
-		return -1
+		return 0
 	}
 
 	return i
