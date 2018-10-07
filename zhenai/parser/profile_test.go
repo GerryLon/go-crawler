@@ -1,11 +1,9 @@
 package parser
 
 import (
-	"fmt"
 	"github.com/GerryLon/go-crawler/model"
 	"io/ioutil"
 	"log"
-	"regexp"
 	"testing"
 )
 
@@ -49,7 +47,7 @@ func TestParseProfile(t *testing.T) {
 	}
 }
 
-func TestHan(t *testing.T) {
-	re := regexp.MustCompile(`(a|\p{Han})+`)
-	fmt.Println(re.FindAllString("a2你3242我你好", -1))
-}
+//func TestHan(t *testing.T) {
+//	re := regexp.MustCompile(`(a|\p{Han})+`)
+//	fmt.Println(re.FindAllString("a2你3242我你好", -1))
+//}

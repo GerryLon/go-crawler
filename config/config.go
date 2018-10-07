@@ -8,4 +8,5 @@ const (
 	RedisMaxActive   = 10
 	RedisPoolMaxIdle = 5
 	RedisHSetKey     = "zhenaiwang"
+	QPS              = 1
 )

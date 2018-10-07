@@ -1,10 +1,10 @@
 package engine
 
 import (
+	"github.com/GerryLon/go-crawler/config"
 	"github.com/GerryLon/go-crawler/fetcher"
 	"github.com/GerryLon/go-crawler/filter"
 	"log"
-	"math/rand"
 	"strings"
 	"time"
 )
@@ -17,10 +17,10 @@ func Run(seeds ...Request) {
 	dedupFilter := filter.RedisDedupFilter{}
 
 	for len(requests) > 0 {
-		q := requests[0]
+		r := requests[0]
 		requests = requests[1:]
 
-		url := q.Url
+		url := r.Url
 
 		if strings.TrimSpace(url) == "" {
 			log.Println("url is empty!")
@@ -33,20 +33,27 @@ func Run(seeds ...Request) {
 		}
 		dedupFilter.Set(url)
 
-		log.Printf("Fetching %s\n", url)
-		contents, err := fetcher.Fetch(url)
-		if err != nil {
-			log.Printf("error occured when get %s: %s\n", url, err)
-		}
-
-		result := q.Parser(contents)
+		result := worker(r)
 		requests = append(requests, result.Requests...)
 
 		for _, item := range result.Items {
 			log.Printf("Got item %v\n", item)
 		}
 
-		// rand.Intn(n) => [0,n)
-		time.Sleep(time.Second * time.Duration(1+rand.Intn(3)))
+		//// rand.Intn(n) => [0,n)
+		//time.Sleep(time.Second * time.Duration(1+rand.Intn(3)))
 	}
+}
+
+var rateLimiter = time.Tick(time.Second / config.QPS)
+
+func worker(r Request) ParseResult {
+	<-rateLimiter
+	log.Printf("Fetching %s\n", r.Url)
+	contents, err := fetcher.Fetch(r.Url)
+	if err != nil {
+		log.Printf("error occured when get %s: %s\n", r.Url, err)
+	}
+	result := r.Parser(contents)
+	return result
 }
