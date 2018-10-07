@@ -62,3 +62,8 @@ func (filter *MemoryDedupFilter) Del(key string) bool {
 	delete(store, text.MD5(key))
 	return true
 }
+
+func (filter *MemoryDedupFilter) Len() int {
+	store := filter.getMemoryStore()
+	return len(store)
+}

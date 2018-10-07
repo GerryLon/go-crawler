@@ -7,6 +7,7 @@ type Filter interface {
 	Get(key string) string
 	Set(key string) bool
 	Del(key string) bool
+	Len() int
 }
 
 // dereplication filter
@@ -27,4 +28,8 @@ func (filter *DuplicateFilter) Set(key string) bool {
 
 func (filter *DuplicateFilter) Del(key string) bool {
 	return false
+}
+
+func (filter *DuplicateFilter) Len() int {
+	return 0
 }

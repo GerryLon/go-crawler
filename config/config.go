@@ -9,5 +9,5 @@ const (
 	RedisPoolMaxIdle   = 5
 	RedisHSetKey       = "zhenaiwang"
 	QPS                = 20
-	WillDeDup          = false // 是否启用去重
+	WillDeDup          = true // 是否启用去重
 )
