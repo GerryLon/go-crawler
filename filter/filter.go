@@ -13,18 +13,18 @@ type Filter interface {
 type DuplicateFilter struct {
 }
 
-func (DuplicateFilter) Has(key string) bool {
+func (filter *DuplicateFilter) Has(key string) bool {
 	return false
 }
 
-func (DuplicateFilter) Get(key string) string {
+func (filter *DuplicateFilter) Get(key string) string {
 	return ""
 }
 
-func (DuplicateFilter) Set(key string) bool {
+func (filter *DuplicateFilter) Set(key string) bool {
 	return false
 }
 
-func (DuplicateFilter) Del(key string) bool {
+func (filter *DuplicateFilter) Del(key string) bool {
 	return false
 }

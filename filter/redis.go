@@ -98,7 +98,6 @@ func (filter *RedisDedupFilter) Set(key string) bool {
 	return filter.setNX(key)
 }
 
-// todo
 func (filter *RedisDedupFilter) Del(key string) bool {
 	return false
 }
