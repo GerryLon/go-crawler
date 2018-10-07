@@ -2,11 +2,16 @@ package main
 
 import (
 	"github.com/GerryLon/go-crawler/engine"
+	"github.com/GerryLon/go-crawler/scheduler"
 	"github.com/GerryLon/go-crawler/zhenai/parser"
 )
 
 func main() {
-	engine.SimpleEngine{}.Run(engine.Request{
+	e := engine.ConcurrentEngine{
+		Scheduler:   &scheduler.SimpleScheduler{},
+		WorkerCount: 100,
+	}
+	e.Run(engine.Request{
 		Url:    "http://city.zhenai.com/",
 		Parser: parser.ParseCityList,
 	})

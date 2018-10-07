@@ -6,13 +6,12 @@ import (
 	"github.com/GerryLon/go-crawler/filter"
 	"log"
 	"strings"
-	"time"
 )
 
 type SimpleEngine struct {
 }
 
-func (e SimpleEngine) Run(seeds ...Request) {
+func (e *SimpleEngine) Run(seeds ...Request) {
 
 	var requests []Request
 	requests = append(requests, seeds...)
@@ -30,15 +29,16 @@ func (e SimpleEngine) Run(seeds ...Request) {
 			continue
 		}
 
-		if dedupFilter.Has(url) {
-			log.Printf("url %s has fetched!\n", url)
-			continue
+		if config.WillDeDup {
+			if dedupFilter.Has(url) {
+				log.Printf("url %s has fetched!", url)
+				continue
+			}
+			dedupFilter.Set(url)
 		}
-		dedupFilter.Set(url)
 
-		result, err := e.worker(r)
+		result, err := worker(r)
 		if err != nil {
-			log.Printf("error occured when get %s: %s\n", r.Url, err)
 			continue
 		}
 
@@ -53,13 +53,11 @@ func (e SimpleEngine) Run(seeds ...Request) {
 	}
 }
 
-var rateLimiter = time.Tick(time.Second / config.QPS)
-
-func (e SimpleEngine) worker(r Request) (ParseResult, error) {
-	<-rateLimiter
-	log.Printf("Fetching %s\n", r.Url)
+func worker(r Request) (ParseResult, error) {
+	log.Printf("Fetching %s", r.Url)
 	contents, err := fetcher.Fetch(r.Url)
 	if err != nil {
+		log.Printf("error occured when get %s: %s", r.Url, err)
 		return ParseResult{}, err
 	}
 	result := r.Parser(contents)

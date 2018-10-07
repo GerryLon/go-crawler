@@ -1,14 +1,19 @@
 package fetcher
 
 import (
+	"github.com/GerryLon/go-crawler/config"
 	"github.com/GerryLon/go-crawler/utils/text"
 	"io/ioutil"
 	"net/http"
 	"time"
 )
 
+var rateLimiter = time.Tick(time.Second / config.QPS)
+
 // fetch contents from giving url
 func Fetch(url string) ([]byte, error) {
+	<-rateLimiter
+
 	client := http.Client{
 		Timeout: time.Second * 30,
 	}
