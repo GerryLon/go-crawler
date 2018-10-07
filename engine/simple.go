@@ -9,7 +9,10 @@ import (
 	"time"
 )
 
-func Run(seeds ...Request) {
+type SimpleEngine struct {
+}
+
+func (e SimpleEngine) Run(seeds ...Request) {
 
 	var requests []Request
 	requests = append(requests, seeds...)
@@ -33,7 +36,12 @@ func Run(seeds ...Request) {
 		}
 		dedupFilter.Set(url)
 
-		result := worker(r)
+		result, err := e.worker(r)
+		if err != nil {
+			log.Printf("error occured when get %s: %s\n", r.Url, err)
+			continue
+		}
+
 		requests = append(requests, result.Requests...)
 
 		for _, item := range result.Items {
@@ -47,13 +55,13 @@ func Run(seeds ...Request) {
 
 var rateLimiter = time.Tick(time.Second / config.QPS)
 
-func worker(r Request) ParseResult {
+func (e SimpleEngine) worker(r Request) (ParseResult, error) {
 	<-rateLimiter
 	log.Printf("Fetching %s\n", r.Url)
 	contents, err := fetcher.Fetch(r.Url)
 	if err != nil {
-		log.Printf("error occured when get %s: %s\n", r.Url, err)
+		return ParseResult{}, err
 	}
 	result := r.Parser(contents)
-	return result
+	return result, nil
 }
