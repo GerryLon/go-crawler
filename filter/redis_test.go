@@ -25,4 +25,6 @@ func TestRedisFilter(t *testing.T) {
 
 	value := filter.Get(key)
 	fmt.Println("value:", value)
+
+	fmt.Println("len:", filter.Len())
 }

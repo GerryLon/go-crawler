@@ -1,9 +1,7 @@
 package engine
 
 import (
-	"github.com/GerryLon/go-crawler/config"
 	"github.com/GerryLon/go-crawler/fetcher"
-	"github.com/GerryLon/go-crawler/filter"
 	"log"
 	"strings"
 )
@@ -14,9 +12,14 @@ type SimpleEngine struct {
 func (e *SimpleEngine) Run(seeds ...Request) {
 
 	var requests []Request
-	requests = append(requests, seeds...)
 
-	dedupFilter := filter.RedisDedupFilter{}
+	//requests = append(requests, seeds...)
+	for _, request := range seeds {
+		if isDuplicate(request.Url) {
+			log.Printf("#%d: %s is duplicate", dedupFilter.Len(), request.Url)
+			continue
+		}
+	}
 
 	for len(requests) > 0 {
 		r := requests[0]
@@ -29,20 +32,19 @@ func (e *SimpleEngine) Run(seeds ...Request) {
 			continue
 		}
 
-		if config.WillDeDup {
-			if dedupFilter.Has(url) {
-				log.Printf("url %s has fetched!", url)
-				continue
-			}
-			dedupFilter.Set(url)
-		}
-
 		result, err := worker(r)
 		if err != nil {
 			continue
 		}
 
-		requests = append(requests, result.Requests...)
+		// requests = append(requests, result.Requests...)
+		for _, request := range result.Requests {
+			if isDuplicate(request.Url) {
+				log.Printf("#%d: %s is duplicate", dedupFilter.Len(), request.Url)
+				continue
+			}
+			requests = append(requests, request)
+		}
 
 		for _, item := range result.Items {
 			log.Printf("Got item %v\n", item)

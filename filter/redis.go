@@ -56,7 +56,7 @@ func (filter *RedisDedupFilter) Has(key string) bool {
 
 	reply, err := conn.Do("HEXISTS", config.RedisHSetKey, text.MD5(key))
 	if err != nil {
-		log.Printf("error occured when calling Has: %v", err)
+		log.Printf("error occured when calling Has(%s): %v", key, err)
 	}
 
 	return utils.Itob(int(reply.(int64)))
@@ -88,7 +88,7 @@ func (filter *RedisDedupFilter) setNX(key string) bool {
 	reply, err := conn.Do("HSETNX", config.RedisHSetKey, md5OfKey, key)
 
 	if err != nil {
-		log.Printf("error occured when calling Get(%s): %v", key, err)
+		log.Printf("error occured when calling setNX(%s): %v", key, err)
 	}
 
 	return utils.Itob(int(reply.(int64)))
@@ -101,4 +101,16 @@ func (filter *RedisDedupFilter) Set(key string) bool {
 
 func (filter *RedisDedupFilter) Del(key string) bool {
 	return false
+}
+
+func (filter *RedisDedupFilter) Len() int {
+	conn := getRedisConn(filter)
+	defer conn.Close()
+	reply, err := conn.Do("HLEN", config.RedisHSetKey)
+
+	if err != nil {
+		log.Printf("error occured when calling Len(): %v", err)
+	}
+
+	return int(reply.(int64))
 }
