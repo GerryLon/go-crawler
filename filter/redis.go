@@ -33,7 +33,7 @@ func (filter *RedisDedupFilter) init() {
 			return c, nil
 		},
 		MaxActive: config.RedisMaxActive,
-		MaxIdle:   config.RedisPort,
+		MaxIdle:   config.RedisPoolMaxIdle,
 	}
 }
 
@@ -99,4 +99,6 @@ func (filter *RedisDedupFilter) Set(key string) bool {
 }
 
 // todo
-//func Del
+func (filter *RedisDedupFilter) Del(key string) bool {
+	return false
+}
