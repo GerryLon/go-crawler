@@ -3,6 +3,8 @@ package parser
 import (
 	"github.com/GerryLon/go-crawler/engine"
 	"github.com/GerryLon/go-crawler/model"
+	"log"
+	"reflect"
 	"regexp"
 	"strconv"
 )
@@ -28,25 +30,26 @@ var reMapping = map[string]*regexp.Regexp{
 
 func ParseProfile(contents []byte, name string, homepage string) engine.ParseResult {
 	result := engine.ParseResult{}
-	profile := model.Profile{}
+	profile := populateProfile(name, homepage, contents)
 
-	profile.Name = name
-	profile.Homepage = homepage
-	profile.Age = extractInt(contents, reMapping["Age"])
-	profile.Gender = extractString(contents, reMapping["Gender"])
-	profile.Height = extractInt(contents, reMapping["Height"])
-	profile.Weight = extractInt(contents, reMapping["Weight"])
-	profile.Salary = extractString(contents, reMapping["Salary"])
-	profile.Marriage = extractString(contents, reMapping["Marriage"])
-	profile.Education = extractString(contents, reMapping["Education"])
-	profile.Occupation = extractString(contents, reMapping["Occupation"])
-	profile.NativePlace = extractString(contents, reMapping["NativePlace"])
-	profile.Workplace = extractString(contents, reMapping["Workplace"])
-	profile.Constellation = extractString(contents, reMapping["Constellation"])
-	profile.Zodiac = extractString(contents, reMapping["Zodiac"])
-	profile.House = extractString(contents, reMapping["House"])
-	profile.Car = extractString(contents, reMapping["Car"])
-	profile.Pic = extractString(contents, reMapping["Pic"])
+	//profile := model.Profile{}
+	//profile.Name = name
+	//profile.Homepage = homepage
+	//profile.Age = extractInt(contents, reMapping["Age"])
+	//profile.Gender = extractString(contents, reMapping["Gender"])
+	//profile.Height = extractInt(contents, reMapping["Height"])
+	//profile.Weight = extractInt(contents, reMapping["Weight"])
+	//profile.Salary = extractString(contents, reMapping["Salary"])
+	//profile.Marriage = extractString(contents, reMapping["Marriage"])
+	//profile.Education = extractString(contents, reMapping["Education"])
+	//profile.Occupation = extractString(contents, reMapping["Occupation"])
+	//profile.NativePlace = extractString(contents, reMapping["NativePlace"])
+	//profile.Workplace = extractString(contents, reMapping["Workplace"])
+	//profile.Constellation = extractString(contents, reMapping["Constellation"])
+	//profile.Zodiac = extractString(contents, reMapping["Zodiac"])
+	//profile.House = extractString(contents, reMapping["House"])
+	//profile.Car = extractString(contents, reMapping["Car"])
+	//profile.Pic = extractString(contents, reMapping["Pic"])
 
 	result.Items = append(result.Items, profile)
 
@@ -62,12 +65,45 @@ func extractString(contents []byte, re *regexp.Regexp) string {
 	return ""
 }
 
-func extractInt(contents []byte, re *regexp.Regexp) int {
+func extractInt(contents []byte, re *regexp.Regexp) int64 {
 	i, err := strconv.Atoi(extractString(contents, re))
 
 	if err != nil {
 		return 0
 	}
 
-	return i
+	return int64(i)
+}
+
+// 根据内容填充一个profile
+func populateProfile(name, homepage string, contents []byte) model.Profile {
+	profile := model.Profile{}
+
+	profile.Name = name
+	profile.Homepage = homepage
+
+	profilePtrValue := reflect.ValueOf(&profile)
+	//fmt.Printf("%v, %V", profilePtrValue, profilePtrValue)
+
+	for key := range reMapping {
+
+		// 这两个已经手动设置过了
+		if key == "Name" || key == "Homepage" {
+			continue
+		}
+
+		field := profilePtrValue.Elem().FieldByName(key)
+		value := reMapping[key]
+
+		switch field.Kind() {
+		case reflect.Int:
+			field.SetInt(extractInt(contents, value))
+		case reflect.String:
+			field.SetString(extractString(contents, value))
+		default:
+			log.Printf("populateProfile(), key %s is not compatible", key)
+		}
+	}
+
+	return profile
 }
