@@ -6,7 +6,7 @@ import (
 
 // de duplication using memory, just a map[string][string]
 type MemoryDedupFilter struct {
-	DuplicateFilter
+	//DuplicateFilter
 	store map[string]string
 }
 

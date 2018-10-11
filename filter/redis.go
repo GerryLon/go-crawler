@@ -12,7 +12,7 @@ import (
 
 // de duplication using redis
 type RedisDedupFilter struct {
-	DuplicateFilter
+	//DuplicateFilter
 	pool *redigo.Pool
 }
 
