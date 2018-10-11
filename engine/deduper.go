@@ -9,9 +9,13 @@ import (
 type Deduper interface {
 	ConfigFilter(filter.Filter) // config dedup filter: memory, redis, or more...
 	isDuplicate(string) bool
+	DeduperInfo
+}
 
-	// Len 方法不应该强制要求实现， 毕竟不是核心方法
-	//Len() int
+// 为了避免将Len等非核心的方法放在Deduper中
+// 因为去重必须实现isDuplicate方法， 而Len方法不是必须的
+type DeduperInfo interface {
+	Len() int
 }
 
 type DefaultDeduper struct {
