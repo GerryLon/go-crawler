@@ -12,7 +12,7 @@ import (
 
 // de duplication using redis
 type RedisDedupFilter struct {
-	DuplicateFilter
+	//DuplicateFilter
 	pool *redigo.Pool
 }
 
@@ -99,6 +99,7 @@ func (filter *RedisDedupFilter) Set(key string) bool {
 	return filter.setNX(key)
 }
 
+// todo
 func (filter *RedisDedupFilter) Del(key string) bool {
 	return false
 }
@@ -114,3 +115,4 @@ func (filter *RedisDedupFilter) Len() int {
 
 	return int(reply.(int64))
 }
+

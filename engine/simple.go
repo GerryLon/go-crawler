@@ -7,16 +7,16 @@ import (
 )
 
 type SimpleEngine struct {
+	Deduper Deduper
 }
 
 func (e *SimpleEngine) Run(seeds ...Request) {
 
 	var requests []Request
-
 	//requests = append(requests, seeds...)
 	for _, request := range seeds {
-		if isDuplicate(request.Url) {
-			log.Printf("#%d: %s is duplicate", dedupFilter.Len(), request.Url)
+		if e.Deduper.isDuplicate(request.Url) {
+			log.Printf("#%d: %s is duplicate", e.Deduper.Len(), request.Url)
 			continue
 		}
 	}
@@ -39,8 +39,8 @@ func (e *SimpleEngine) Run(seeds ...Request) {
 
 		// requests = append(requests, result.Requests...)
 		for _, request := range result.Requests {
-			if isDuplicate(request.Url) {
-				log.Printf("#%d: %s is duplicate", dedupFilter.Len(), request.Url)
+			if e.Deduper.isDuplicate(request.Url) {
+				log.Printf("#%d: %s is duplicate", e.Deduper.Len(), request.Url)
 				continue
 			}
 			requests = append(requests, request)
@@ -65,3 +65,4 @@ func worker(r Request) (ParseResult, error) {
 	result := r.Parser(contents)
 	return result, nil
 }
+
