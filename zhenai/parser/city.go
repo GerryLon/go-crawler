@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-var profileRe = regexp.MustCompile(`<a href="(http://album.zhenai.com/u/\d+)"[^>]*>([^<]+)</a>`)
+var profileRe = regexp.MustCompile(`<a href="(http://album.zhenai.com/u/(\d+))"[^>]*>([^<]+)</a>`)
 
 // 城市详情页面还有其他城市的链接
 var cityUrlRe = regexp.MustCompile(`<a\s+href="(http://www.zhenai.com/zhenghun/[^"]+)"[^>]*>([^<]+)</a>`)
@@ -15,17 +15,19 @@ func ParseCity(contents []byte) engine.ParseResult {
 
 	result := engine.ParseResult{}
 	for _, match := range matches {
-		name := string(match[2])
-		homepage := string(match[1])
+		name := string(match[3])
+		url := string(match[1])
+		id := string(match[2])
 		result.Requests = append(result.Requests, engine.Request{
-			Url: homepage,
+			Url: url,
 			Parser: func(c []byte) engine.ParseResult {
-				return ParseProfile(c, name, homepage)
+				return ParseProfile(c, name, url, id)
 			},
 		})
 
 		// match[2] is user's nickname
-		result.Items = append(result.Items, name)
+		// nickname　is useless, we just need profile
+		//result.Items = append(result.Items, name)
 	}
 
 	// relative cities
@@ -36,7 +38,7 @@ func ParseCity(contents []byte) engine.ParseResult {
 			Parser: ParseCity,
 		})
 
-		result.Items = append(result.Items, string(match[2]))
+		// result.Items = append(result.Items, string(match[2]))
 	}
 
 	return result

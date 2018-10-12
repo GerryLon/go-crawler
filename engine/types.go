@@ -9,7 +9,15 @@ type Request struct {
 
 type ParseResult struct {
 	Requests []Request
-	Items    []interface{}
+	Items    []Item
+}
+
+// ParseResult中的一个条目
+type Item struct {
+	Id      string // 目标的id， 如uid值
+	Type    string // 可配置， 比如“zhenai"
+	Url     string // 一般为详情页面（如个人主页）
+	Payload interface{}
 }
 
 // this parser do nothing
