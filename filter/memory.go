@@ -10,12 +10,10 @@ type MemoryDedupFilter struct {
 	store map[string]string
 }
 
-// init redis connection pool
 func (filter *MemoryDedupFilter) init() {
 	filter.store = make(map[string]string)
 }
 
-// get one connection from redis connection pool
 func (filter *MemoryDedupFilter) getMemoryStore() map[string]string {
 	if filter.store == nil {
 		filter.init()
@@ -23,20 +21,17 @@ func (filter *MemoryDedupFilter) getMemoryStore() map[string]string {
 	return filter.store
 }
 
-// redis: exists key
 func (filter *MemoryDedupFilter) Has(key string) bool {
 	store := filter.getMemoryStore()
 	_, ok := store[text.MD5(key)]
 	return ok
 }
 
-//redis: get mdt(key)
 func (filter *MemoryDedupFilter) Get(key string) string {
 	store := filter.getMemoryStore()
 	return store[text.MD5(key)]
 }
 
-// memory: set key if it dose not exist
 func (filter *MemoryDedupFilter) setNX(key string) bool {
 	store := filter.getMemoryStore()
 
@@ -51,7 +46,6 @@ func (filter *MemoryDedupFilter) setNX(key string) bool {
 	return true
 }
 
-// set using redis: setnx key
 func (filter *MemoryDedupFilter) Set(key string) bool {
 	return filter.setNX(key)
 }

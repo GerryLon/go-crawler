@@ -32,6 +32,7 @@ func (filter *RedisDedupFilter) init() {
 
 			return c, nil
 		},
+
 		MaxActive: config.RedisPoolMaxActive,
 		MaxIdle:   config.RedisPoolMaxIdle,
 	}
