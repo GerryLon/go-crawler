@@ -62,7 +62,7 @@ func (e *ConcurrentEngine) createWorker(in chan Request, out chan ParseResult) {
 	go func() {
 		for {
 			request := <-in
-			result, err := worker(request)
+			result, err := Worker(request)
 
 			if err != nil {
 				continue
