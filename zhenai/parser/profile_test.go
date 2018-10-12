@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/GerryLon/go-crawler/engine"
 	"github.com/GerryLon/go-crawler/model"
 	"io/ioutil"
 	"log"
@@ -14,7 +15,7 @@ func TestParseProfile(t *testing.T) {
 		panic(err)
 	}
 
-	result := ParseProfile(contents, "会员107790366", "http://album.zhenai.com/u/107790366")
+	result := ParseProfile(contents, "会员107790366", "http://album.zhenai.com/u/107790366", "107790366")
 
 	if len(result.Items) < 1 {
 		log.Printf("Items should have at least ONE element, but got %d", len(result.Items))
@@ -22,7 +23,6 @@ func TestParseProfile(t *testing.T) {
 
 	expectedProfile := model.Profile{
 		Name:          "会员107790366",
-		Homepage:      "http://album.zhenai.com/u/107790366",
 		Age:           28,
 		Gender:        "女",
 		Height:        165,
@@ -40,10 +40,17 @@ func TestParseProfile(t *testing.T) {
 		Pic:           "http://photo11.zastatic.com/images/photo/26948/107790366/1506944293939.jpg",
 	}
 
-	realProfile := result.Items[0]
+	expectedItem := engine.Item{
+		Url:     "http://album.zhenai.com/u/107790366",
+		Type:    "zhenai",
+		Id:      "107790366",
+		Payload: expectedProfile,
+	}
 
-	if expectedProfile != realProfile {
-		log.Printf("Expected profile:\n%v\nBut got:\n%v\n", expectedProfile, realProfile)
+	realItem := result.Items[0]
+
+	if expectedItem != realItem {
+		log.Printf("Expected profile:\n%+v\nBut got:\n%+v", expectedItem, realItem)
 	}
 }
 

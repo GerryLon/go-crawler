@@ -28,9 +28,9 @@ var reMapping = map[string]*regexp.Regexp{
 	"Pic":           regexp.MustCompile(`<img data-big-img="([^"]+)"[^>]*>`),
 }
 
-func ParseProfile(contents []byte, name string, homepage string) engine.ParseResult {
+func ParseProfile(contents []byte, name, url, id string) engine.ParseResult {
 	result := engine.ParseResult{}
-	profile := populateProfile(name, homepage, contents)
+	profile := populateProfile(name, contents)
 
 	//profile := model.Profile{}
 	//profile.Name = name
@@ -51,7 +51,12 @@ func ParseProfile(contents []byte, name string, homepage string) engine.ParseRes
 	//profile.Car = extractString(contents, reMapping["Car"])
 	//profile.Pic = extractString(contents, reMapping["Pic"])
 
-	result.Items = append(result.Items, profile)
+	result.Items = append(result.Items, engine.Item{
+		Id:      id,
+		Url:     url,
+		Type:    "zhenai",
+		Payload: profile,
+	})
 
 	return result
 }
@@ -76,24 +81,24 @@ func extractInt(contents []byte, re *regexp.Regexp) int64 {
 }
 
 // 根据内容填充一个profile
-func populateProfile(name, homepage string, contents []byte) model.Profile {
+func populateProfile(name string, contents []byte) model.Profile {
 	profile := model.Profile{}
 
 	profile.Name = name
-	profile.Homepage = homepage
+	//profile.Homepage = homepage
 
 	profilePtrValue := reflect.ValueOf(&profile)
 	//fmt.Printf("%v, %V", profilePtrValue, profilePtrValue)
 
 	for key := range reMapping {
 
-		// 这两个已经手动设置过了
-		if key == "Name" || key == "Homepage" {
+		field := profilePtrValue.Elem().FieldByName(key)
+		value, ok := reMapping[key]
+
+		// if key is not in reMapping
+		if !ok {
 			continue
 		}
-
-		field := profilePtrValue.Elem().FieldByName(key)
-		value := reMapping[key]
 
 		switch field.Kind() {
 		case reflect.Int:
@@ -107,4 +112,3 @@ func populateProfile(name, homepage string, contents []byte) model.Profile {
 
 	return profile
 }
-

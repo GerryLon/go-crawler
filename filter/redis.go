@@ -115,4 +115,3 @@ func (filter *RedisDedupFilter) Len() int {
 
 	return int(reply.(int64))
 }
-

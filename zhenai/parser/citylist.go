@@ -18,7 +18,7 @@ func ParseCityList(contents []byte) engine.ParseResult {
 		})
 
 		// match[2] is city name
-		result.Items = append(result.Items, string(match[2]))
+		// result.Items = append(result.Items, string(match[2]))
 	}
 
 	return result

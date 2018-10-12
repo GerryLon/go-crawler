@@ -2,8 +2,8 @@ package model
 
 // user profile
 type Profile struct {
-	Name          string // 用户名
-	Homepage      string // 个人主页地址（一般为用户详情页面）
+	Name string // 用户名
+	//Homepage      string // 个人主页地址（一般为用户详情页面） // this field is just Item's Url
 	Age           int    // 年龄
 	Gender        string // 性别
 	Height        int    // 身高: cm

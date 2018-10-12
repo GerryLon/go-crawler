@@ -61,4 +61,3 @@ func (filter *MemoryDedupFilter) Len() int {
 	store := filter.getMemoryStore()
 	return len(store)
 }
-

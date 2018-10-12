@@ -1,7 +1,6 @@
 package engine
 
 import (
-	"github.com/GerryLon/go-crawler/fetcher"
 	"log"
 	"strings"
 )
@@ -18,6 +17,8 @@ func (e *SimpleEngine) Run(seeds ...Request) {
 		if e.Deduper.isDuplicate(request.Url) {
 			log.Printf("#%d: %s is duplicate", e.Deduper.Len(), request.Url)
 			continue
+		} else {
+			requests = append(requests, request)
 		}
 	}
 
@@ -28,11 +29,12 @@ func (e *SimpleEngine) Run(seeds ...Request) {
 		url := r.Url
 
 		if strings.TrimSpace(url) == "" {
-			log.Println("url is empty!")
+			log.Printf("url is empty!")
 			continue
 		}
 
-		result, err := worker(r)
+		result, err := Worker(r)
+
 		if err != nil {
 			continue
 		}
@@ -54,15 +56,3 @@ func (e *SimpleEngine) Run(seeds ...Request) {
 		//time.Sleep(time.Second * time.Duration(1+rand.Intn(3)))
 	}
 }
-
-func worker(r Request) (ParseResult, error) {
-	log.Printf("Fetching %s", r.Url)
-	contents, err := fetcher.Fetch(r.Url)
-	if err != nil {
-		log.Printf("error occured when get %s: %s", r.Url, err)
-		return ParseResult{}, err
-	}
-	result := r.Parser(contents)
-	return result, nil
-}
-

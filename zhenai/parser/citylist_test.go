@@ -16,17 +16,18 @@ func TestParseCityList(t *testing.T) {
 
 	result := ParseCityList(contents)
 
-	if len(result.Items) != expectedCityCount {
-		t.Errorf("expected item count: %d, but got: %d\n", expectedCityCount, len(result.Items))
-	}
+	// citylist.go removed items, so below if is useless
+	//if len(result.Items) != expectedCityCount {
+	//	t.Errorf("expected item count: %d, but got: %d\n", expectedCityCount, len(result.Items))
+	//}
 
-	var expectedCities = []string{"阿坝", "阿克苏", "阿拉善盟"}
-
-	for i, city := range expectedCities {
-		if result.Items[i] != city {
-			t.Errorf("expect city name is %s, but got:%s\n", city, result.Items[i])
-		}
-	}
+	//var expectedCities = []string{"阿坝", "阿克苏", "阿拉善盟"}
+	//
+	//for i, city := range expectedCities {
+	//	if result.Items[i] != city {
+	//		t.Errorf("expect city name is %s, but got:%s\n", city, result.Items[i])
+	//	}
+	//}
 
 	var expectedUrls = []string{
 		"http://city.zhenai.com/aba",
