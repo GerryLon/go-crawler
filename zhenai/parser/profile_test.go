@@ -4,7 +4,6 @@ import (
 	"github.com/GerryLon/go-crawler/engine"
 	"github.com/GerryLon/go-crawler/model"
 	"io/ioutil"
-	"log"
 	"testing"
 )
 
@@ -18,7 +17,7 @@ func TestParseProfile(t *testing.T) {
 	result := ParseProfile(contents, "会员107790366", "http://album.zhenai.com/u/107790366", "107790366")
 
 	if len(result.Items) < 1 {
-		log.Printf("Items should have at least ONE element, but got %d", len(result.Items))
+		t.Errorf("Items should have at least ONE element, but got %d", len(result.Items))
 	}
 
 	expectedProfile := model.Profile{
@@ -50,7 +49,7 @@ func TestParseProfile(t *testing.T) {
 	realItem := result.Items[0]
 
 	if expectedItem != realItem {
-		log.Printf("Expected profile:\n%+v\nBut got:\n%+v", expectedItem, realItem)
+		t.Errorf("Expected profile:\n%+v\nBut got:\n%+v", expectedItem, realItem)
 	}
 }
 

@@ -7,7 +7,6 @@ import (
 type ConcurrentEngine struct {
 	Scheduler   Scheduler
 	WorkerCount int
-
 	//Deduper     filter.Filter // 如果这样写，需要去重的地方就要if has, set， 麻烦， 应该再封装一层
 	Deduper Deduper
 }
