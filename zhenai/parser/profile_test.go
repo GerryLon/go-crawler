@@ -20,30 +20,28 @@ func TestParseProfile(t *testing.T) {
 		t.Errorf("Items should have at least ONE element, but got %d", len(result.Items))
 	}
 
-	expectedProfile := model.Profile{
-		Name:          "会员107790366",
-		Age:           28,
-		Gender:        "女",
-		Height:        165,
-		Weight:        0,
-		Salary:        "3000元以下",
-		Marriage:      "未婚",
-		Education:     "大专",
-		Occupation:    "",
-		NativePlace:   "",
-		Workplace:     "陕西渭南",
-		Constellation: "双鱼座",
-		Zodiac:        "马",
-		House:         "",
-		Car:           "未购车",
-		Pic:           "http://photo11.zastatic.com/images/photo/26948/107790366/1506944293939.jpg",
-	}
-
 	expectedItem := engine.Item{
-		Url:     "http://album.zhenai.com/u/107790366",
-		Type:    "zhenai",
-		Id:      "107790366",
-		Payload: expectedProfile,
+		Url:  "http://album.zhenai.com/u/107790366",
+		Type: "zhenai",
+		Id:   "107790366",
+		Payload: model.Profile{
+			Name:          "会员107790366",
+			Age:           28,
+			Gender:        "女",
+			Height:        165,
+			Weight:        0,
+			Salary:        "3000元以下",
+			Marriage:      "未婚",
+			Education:     "大专",
+			Occupation:    "",
+			NativePlace:   "",
+			Workplace:     "陕西渭南",
+			Constellation: "双鱼座",
+			Zodiac:        "马",
+			House:         "",
+			Car:           "未购车",
+			Pic:           "http://photo11.zastatic.com/images/photo/26948/107790366/1506944293939.jpg",
+		},
 	}
 
 	realItem := result.Items[0]
