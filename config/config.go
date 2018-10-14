@@ -9,5 +9,6 @@ const (
 	RedisPoolMaxIdle   = 5
 	RedisHSetKey       = "zhenaiwang"
 	QPS                = 20
-	WillDeDup          = true // 是否启用去重
+	WillDeDup          = true           // 是否启用去重
+	ElasticIndex       = "data_profile" // elastic search index name
 )

@@ -5,6 +5,7 @@ import (
 	"github.com/GerryLon/go-crawler/engine"
 	"github.com/olivere/elastic"
 	"github.com/pkg/errors"
+	"log"
 	"strings"
 )
 
@@ -19,8 +20,19 @@ func ItemSaver(elasticIndex string) (chan engine.Item, error) {
 	out := make(chan engine.Item)
 
 	go func() {
-		item := <-out
-		SaveItem(client, elasticIndex, item)
+		itemCount := 0
+		for {
+			item := <-out
+			itemCount++
+			log.Printf("Item Saver: got item "+
+				"#%d: %v", itemCount, item)
+			err := SaveItem(client, elasticIndex, item)
+
+			if err != nil {
+				log.Printf("save item error: %v", err)
+			}
+		}
+
 	}()
 
 	return out, nil

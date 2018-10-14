@@ -1,28 +1,39 @@
 package main
 
 import (
+	"github.com/GerryLon/go-crawler/config"
 	"github.com/GerryLon/go-crawler/engine"
 	"github.com/GerryLon/go-crawler/filter"
+	"github.com/GerryLon/go-crawler/persist"
+	"github.com/GerryLon/go-crawler/scheduler"
 	"github.com/GerryLon/go-crawler/zhenai/parser"
 )
 
 func main() {
-	deduper := engine.DefaultDeduper{}
-
 	// config dedup filter
-	deduper.ConfigFilter(&filter.MemoryDedupFilter{})
+	deduper := engine.DefaultDeduper{}
+	deduper.ConfigFilter(&filter.RedisDedupFilter{})
 
-	//e := engine.ConcurrentEngine{
-	//	Scheduler:   &scheduler.SimpleScheduler{},
-	//	WorkerCount: 100,
-	//
-	//	// 配置去重过滤器
-	//	Deduper: &deduper,
-	//}
+	// config elastic search
+	itemChan, err := persist.ItemSaver(config.ElasticIndex)
+	if err != nil {
+		panic(err)
+	}
 
-	e := engine.SimpleEngine{
+	// use concurrent engine
+	e := engine.ConcurrentEngine{
+		Scheduler:   &scheduler.SimpleScheduler{},
+		WorkerCount: 100,
+		ItemChan:    itemChan,
+		// 配置去重过滤器
 		Deduper: &deduper,
 	}
+
+	// use simple engine
+	//e := engine.SimpleEngine{
+	//	Deduper:  &deduper,
+	//	ItemChan: itemChan,
+	//}
 
 	e.Run(engine.Request{
 		Url:    "http://city.zhenai.com/",

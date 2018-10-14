@@ -6,7 +6,8 @@ import (
 )
 
 type SimpleEngine struct {
-	Deduper Deduper
+	ItemChan chan Item
+	Deduper  Deduper
 }
 
 func (e *SimpleEngine) Run(seeds ...Request) {
@@ -49,7 +50,10 @@ func (e *SimpleEngine) Run(seeds ...Request) {
 		}
 
 		for _, item := range result.Items {
-			log.Printf("Got item %v\n", item)
+			//log.Printf("Got item %v\n", item)
+			go func(i Item) {
+				e.ItemChan <- i
+			}(item)
 		}
 
 		//// rand.Intn(n) => [0,n)

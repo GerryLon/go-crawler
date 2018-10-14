@@ -7,6 +7,7 @@ import (
 type ConcurrentEngine struct {
 	Scheduler   Scheduler
 	WorkerCount int
+	ItemChan    chan Item
 	//Deduper     filter.Filter // 如果这样写，需要去重的地方就要if has, set， 麻烦， 应该再封装一层
 	Deduper Deduper
 }
@@ -45,6 +46,9 @@ func (e *ConcurrentEngine) Run(seeds ...Request) {
 		for _, item := range r.Items {
 			count++
 			log.Printf("Got #%d item: %v", count, item)
+			go func(item Item) {
+				e.ItemChan <- item
+			}(item)
 		}
 
 		// 将worker生成的ParseResult中的Requests送给scheduler
