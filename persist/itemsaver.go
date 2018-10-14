@@ -2,6 +2,7 @@ package persist
 
 import (
 	"context"
+	"github.com/GerryLon/go-crawler/config"
 	"github.com/GerryLon/go-crawler/engine"
 	"github.com/olivere/elastic"
 	"github.com/pkg/errors"
@@ -11,7 +12,7 @@ import (
 
 func ItemSaver(elasticIndex string) (chan engine.Item, error) {
 	client, err := elastic.NewClient(
-		elastic.SetSniff(false), elastic.SetURL("http://192.168.31.65:9200"))
+		elastic.SetSniff(false), elastic.SetURL(config.ElasticUrl))
 
 	if err != nil {
 		return nil, err

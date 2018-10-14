@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search person</title>
+</head>
+<body>
+
+    <h1>
+        {{ .Hits }}
+        {{range .Items}}
+            <div>
+                <a href="{{ .Url }}">{{ .Url }}</a>
+            </div>
+        {{end}}
+    </h1>
+</body>
+</html>

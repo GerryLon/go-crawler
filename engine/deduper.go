@@ -27,7 +27,7 @@ func (d *DefaultDeduper) ConfigFilter(filter filter.Filter) {
 }
 
 func (d *DefaultDeduper) isDuplicate(url string) bool {
-	if config.WillDeDup {
+	if config.WillDedup {
 		if d.filter.Has(url) {
 			return true
 		} else {
