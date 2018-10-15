@@ -9,11 +9,11 @@
 <body>
 
     <div class="container">
-        <h1 class="align-content-center">go-crawler profile gallery</h1>
+        <h1 class="title">go-crawler profile gallery</h1>
 
         <div class="search-area">
             <form action="/search" method="GET" class="form-inline">
-                <input type="text" name="q" placeholder="Please input condition, like: 女 已购房"
+                <input type="text" name="q" value="{{ .Query }}" placeholder="Please input condition, like: 女 已购房"
                        class="form-control col-10">
                 <div class="col-1"></div>
                 <button type="submit" class="form-control col-1">搜索</button>
@@ -21,7 +21,7 @@
         </div>
 
         <p>共找到<em>{{ .Hits }}</em>条记录</p>
-        <table class="table-striped table-bordered table-result">
+        <table class="table-striped table-bordered table-result table-hover">
             <tr>
                 <th>昵称</th>
                 <th>性别</th>
@@ -40,7 +40,7 @@
             </tr>
         {{range .Items}}
             <tr>
-                <td><a href="{{ .Url }}">{{ .Payload.Name }}</a></td>
+                <td><a href="{{ .Url }}" target="_blank">{{ .Payload.Name }}</a></td>
             {{with .Payload}}
                 <td>{{.Gender}}</td>
                 <td>{{.Age}}</td>

@@ -74,6 +74,7 @@ func (s SearchResultHandler) getSearchResult(sc *SearchCondition) model.SearchRe
 
 	result.Hits = resp.TotalHits()
 	result.Items = resp.Each(reflect.TypeOf(engine.Item{}))
+	result.Query = sc.q
 
 	return result
 }
