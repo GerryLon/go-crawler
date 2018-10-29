@@ -7,7 +7,7 @@ const (
 	RedisPassword      = "gerrylon"
 	RedisPoolMaxActive = 10
 	RedisPoolMaxIdle   = 5
-	RedisHSetKey       = "zhenaiwang"
+	RedisHSetKey       = "dedupKey" // redis: hset ${RedisHSetKey} field value
 	QPS                = 20
 	WillDedup          = true           // dedup?
 	ElasticIndex       = "data_profile" // elastic search index name
