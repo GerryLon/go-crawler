@@ -11,8 +11,8 @@ func main() {
 
 	http.Handle("/search",
 		controller.CreateSearchResultHandler("go-crawler/frontend/view/index.html"))
-	err := http.ListenAndServeTLS(":8888", "go-crawler/cert.pem", "go-crawler/key.pem", nil)
-
+	// err := http.ListenAndServeTLS(":8888", "go-crawler/cert.pem", "go-crawler/key.pem", nil)
+	err := http.ListenAndServe(":8888", nil)
 	if err != nil {
 		panic(err)
 	}

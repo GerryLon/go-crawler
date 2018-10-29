@@ -62,8 +62,14 @@ func (s SearchResultHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func (s SearchResultHandler) getSearchResult(sc *SearchCondition) model.SearchResult {
 	result := model.SearchResult{}
 
+	// default is *
+	q := sc.q
+	if q == "" {
+		q = "*"
+	}
+
 	resp, err := s.elasticClient.Search(config.ElasticIndex).
-		Query(elastic.NewQueryStringQuery(sc.q)).
+		Query(elastic.NewQueryStringQuery(q)).
 		Do(context.Background())
 
 	// empty result will returned when error occurred
